@@ -5,6 +5,7 @@ namespace App\Models;
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
+use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Post extends Model
 
@@ -42,10 +43,15 @@ class Post extends Model
         return $query->where("published_at","<=", Carbon::now());
     }
 
-    //App\Post model
-// public function resolveRouteBinding($value)
-// {return Post::published()->where('slug',$value)->first();
-// }
+    
+public function getBodyHtmlAttribute($value)
+{
+    return $this-> body ? Markdown::convertToHtml(e($this-> body)) : NULL;
+}
 
+public function getExerptHtmlAttribute($value)
+{
+    return $this-> exerpt ? Markdown::convertToHtml(e($this-> exerpt)) : NULL;
+}
 
 }
