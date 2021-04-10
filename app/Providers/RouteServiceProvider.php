@@ -1,12 +1,13 @@
 <?php
 
 namespace App\Providers;
-
+use App\Models\Post;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -47,6 +48,14 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
         });
+
+        //explicit binding for better seo
+        parent::boot();
+        Route::model('post', Post::class);
+        $router = app('router');
+         Route::bind('post', function($value) {
+            return Post::where('id', $value)->orWhere('slug', $value)->first();
+         });
     }
 
     /**

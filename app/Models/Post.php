@@ -36,10 +36,16 @@ class Post extends Model
         return $query->orderBy('created_at', 'desc');
     }
 
+    // only show those that publish date is today or passt
     public function scopePublished($query)
     {
         return $query->where("published_at","<=", Carbon::now());
     }
+
+    //App\Post model
+// public function resolveRouteBinding($value)
+// {return Post::published()->where('slug',$value)->first();
+// }
 
 
 }

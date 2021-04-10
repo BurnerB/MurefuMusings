@@ -21,4 +21,11 @@ class BlogController extends Controller
         ->simplePaginate($this->limit);
         return view("blog.index",compact('posts'));
     }
+
+    public function show(Post $post)
+    {
+        // // prevent id of non published urls being put in url
+        // $post=Post::published()->findOrFail($id);
+        return view("blog.show", compact('post'));
+    }
 }
