@@ -42,7 +42,8 @@ class PostsTableSeeder extends Seeder
                 'updated_at'=> $createdDate,
                 // display only publish post,draft posts not displayed
                 'published_at'=>$i <5 ? $publishedDate :(rand(0,1)==0 ?NULL :$publishedDate->addDays(4)),
-                 'category_id'=>rand(1,6)
+                 'category_id'=>rand(1,6),
+                 'view_count'=>rand(1,10) *10
 
             ];
 

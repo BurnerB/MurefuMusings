@@ -58,4 +58,9 @@ public function category()
     return $this->belongsTo(Category::class);
 }
 
+public function scopePopular($query)
+    {
+        return $query->orderBy('view_count', 'desc');
+    }
+
 }
