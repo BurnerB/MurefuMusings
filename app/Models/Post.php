@@ -53,5 +53,9 @@ public function getExerptHtmlAttribute($value)
 {
     return $this-> exerpt ? Markdown::convertToHtml(e($this-> exerpt)) : NULL;
 }
+public function category()
+{
+    return $this->belongsTo(Category::class);
+}
 
 }
