@@ -27,3 +27,8 @@ Route::get('/blog/{post}', [
 Route::get('/category/{category}', [
     BlogController::class,'category'
     ])->name('category');
+
+Route::get('/author/{author}', [
+    BlogController::class,'author'
+    ])->name('author');
+    
