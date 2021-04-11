@@ -44,23 +44,35 @@ class Post extends Model
     }
 
     
-public function getBodyHtmlAttribute($value)
-{
-    return $this-> body ? Markdown::convertToHtml(e($this-> body)) : NULL;
-}
-
-public function getExerptHtmlAttribute($value)
-{
-    return $this-> exerpt ? Markdown::convertToHtml(e($this-> exerpt)) : NULL;
-}
-public function category()
-{
-    return $this->belongsTo(Category::class);
-}
-
-public function scopePopular($query)
+    public function getBodyHtmlAttribute($value)
     {
-        return $query->orderBy('view_count', 'desc');
+        return $this-> body ? Markdown::convertToHtml(e($this-> body)) : NULL;
+    }
+
+    public function getExerptHtmlAttribute($value)
+    {
+        return $this-> exerpt ? Markdown::convertToHtml(e($this-> exerpt)) : NULL;
+    }
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function scopePopular($query)
+        {
+            return $query->orderBy('view_count', 'desc');
+        }
+
+    public function getImageThumbUrlAttribute($value)
+    {
+        $imageUrl = " ";
+        if(! is_null($this->image)){
+            $thumbnail = str_replace(".jpg","_thumb.jpg", $this->image);
+            $imagePath = public_path() . "/img/" .$thumbnail;
+            if(file_exists($imagePath)) $imageUrl = asset("img/" . $thumbnail); 
+        }
+
+        return $imageUrl;
     }
 
 }

@@ -54,6 +54,8 @@ class BlogController extends Controller
     public function show(Post $post)
     {
         //  prevent id of non published urls being put in url
+
+        $post->increment('view_count');
         return view("blog.show", compact('post'));
     }
 }
