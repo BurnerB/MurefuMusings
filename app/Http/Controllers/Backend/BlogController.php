@@ -8,11 +8,20 @@ use App\Models\Post;
 class BlogController extends BackendController
 {
     protected $limit=7;
+    protected $uploadPath;
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
+     *
+     * 
      */
+
+     public function __construct()
+     {
+         parent::__construct();
+         $this->uploadPath = public_path('img');
+     }
     public function index()
     {
         $posts=Post::with('category','author')->latest()->paginate($this->limit);
@@ -44,10 +53,29 @@ class BlogController extends BackendController
             'exerpt'=> 'required',
             'body'=> 'required',
             'published_at'=> 'date_format:Y-m-d',
+            'category_id'=>'required',
+            'image'=>'mimes:jpg,jpeg,bmp,png'
         ]);
+
+        $data=$this->handleRequest($request);
         
-        $request->user()->posts()->create($request->all());
+        $request->user()->posts()->create($data);
         return redirect(route('backend.blog.index'))->with('message','Your post was created successfully');
+    }
+
+    public function handleRequest($request)
+    {
+        $data = $request->all();
+        if($request->hasFile('image')){
+            $image= $request->file('image');
+            $fileName = $image->getClientOriginalName();
+            $destination = $this->uploadPath;
+            $image->move($destination,$fileName);
+
+            $data['image']=$fileName;
+        }
+
+        return $data;
     }
 
     /**
