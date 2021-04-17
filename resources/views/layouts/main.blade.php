@@ -46,14 +46,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8">
-                    <p class="copyright">&copy; 2016 Edo Masaru</p>
+                    <p class="copyright">&copy; 2021 Fredrick Murefu</p>
                 </div>
                 <div class="col-md-4">
                     <nav>
                         <ul class="social-icons">
                             <li><a href="#" class="i fa fa-facebook"></a></li>
                             <li><a href="#" class="i fa fa-twitter"></a></li>
-                            <li><a href="#" class="i fa fa-google-plus"></a></li>
+                            <li><a href="#" class="i fa fa-medium"></a></li>
                             <li><a href="#" class="i fa fa-github"></a></li>
                         </ul>
                     </nav>
