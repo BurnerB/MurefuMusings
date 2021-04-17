@@ -27,9 +27,9 @@
                             <tr>
                                 <td width="80">Action</td>
                                 <td>Title</td>
-                                <td>Author</td>
-                                <td>Category</td>
-                                <td>Date</td>
+                                <td >Author</td>
+                                <td >Category</td>
+                                <td >Date</td>
                             </tr>
                         </thead>
 
@@ -48,7 +48,11 @@
                                 <td>{{$post->title}}</td>
                                 <td>{{$post->author->name}}</td>
                                 <td>{{$post->category->title}}</td>
-                                <td>{{$post->created_at}}</td>
+                                <td>
+                                    <abbr title="{{$post->dateFormatted(true)}}">{{$post->dateFormatted()}}</abbr>
+                                    |
+                                    {!! $post->publicationLabel() !!}
+                                </td>
                             </tr>
                             @endforeach
                             
@@ -58,16 +62,12 @@
               <!-- /.box-body -->
               <div class="box-footer clearfix">
               <div class="pull-left">
-                <ul class="pagination no-margin">
-                    <li><a href="#">&laquo;</a></li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">&raquo;</a></li>
-                </ul>
+                {{ $posts->links()}}
               </div>
               <div class="pull-right">
-              <small>4 blogs</small>
+              <?php $postCount = $posts->count()?>
+              <small>{{$postCount}} {{ Str::plural('Item',$postCount)}}</small>
+
               </div>
               
               </div>
