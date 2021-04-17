@@ -38,46 +38,66 @@
               ])
               !!}
 
-              <div class="form-group">             
+              <div class="form-group {{ $errors->has('title') ? 'has-error' :''}}">             
 
               {!! Form ::label('title') !!}
               {!! Form ::text('title',null,['class'=> 'form-control']) !!}
+
+              @if($errors->has('title'))
+                            <span class="help-block">{{ $errors->first('title') }}</span>
+                        @endif
              
               </div>
-              <div class="form-group">            
+              <div class="form-group {{ $errors->has('slug') ? 'has-error' :''}}">            
 
               {!! Form ::label('slug') !!}
               {!! Form ::text('slug',null,['class'=> 'form-control']) !!}
-             
-              </div>
-              <div class="form-group">             
 
-              {!! Form ::label('excerpt') !!}
-              {!! Form ::textarea('excerpt',null,['class'=> 'form-control']) !!}
+              @if($errors->has('slug'))
+                            <span class="help-block">{{ $errors->first('slug') }}</span>
+                        @endif
              
               </div>
-              <div class="form-group">             
+              <div class="form-group {{ $errors->has('exerpt') ? 'has-error' :''}}">             
+
+              {!! Form ::label('exerpt') !!}
+              {!! Form ::textarea('exerpt',null,['class'=> 'form-control']) !!}
+
+              @if($errors->has('exerpt'))
+                            <span class="help-block">{{ $errors->first('exerpt') }}</span>
+                        @endif
+             
+              </div>
+              <div class="form-group {{ $errors->has('body') ? 'has-error' :''}}">             
 
               {!! Form ::label('body') !!}
               {!! Form ::textarea('body',null,['class'=> 'form-control']) !!}
+
+              @if($errors->has('body'))
+                            <span class="help-block">{{ $errors->first('body') }}</span>
+                        @endif
              
               </div>
-              <div class="form-group">         
+              <div class="form-group {{ $errors->has('published_at') ? 'has-error' : '' }}">
+                        {!! Form::label('published_at', 'Publish Date') !!}
+                        {!! Form::text('published_at', null, ['class' => 'form-control', 'placeholder' => 'Y-m-d H:i:s']) !!}
 
-              {!! Form ::label('published_at','Publish Date') !!}
-              {!! Form ::text('published_at',null,['class'=> 'form-control']) !!}
-             
-              </div>
+                        @if($errors->has('published_at'))
+                            <span class="help-block">{{ $errors->first('published_at') }}</span>
+                        @endif
+                    </div>
 
-              <div class="form-group">         
+              <div class="form-group {{ $errors->has('category_id') ? 'has-error' : '' }}">
+                        {!! Form::label('category_id', 'Category') !!}
+                        {!! Form::select('category_id', App\Models\Category::pluck('title', 'id'), null, ['class' => 'form-control', 'placeholder' => 'Choose category']) !!}
 
-              {!! Form ::label('category_id','Category') !!}
-              {!! Form ::select('category_id',App\Models\Category::pluck('title', 'id'),null,['class'=> 'form-control','placeholder'=>'Choose a Category']) !!}
-             
-              </div>
+                        @if($errors->has('category_id'))
+                            <span class="help-block">{{ $errors->first('category_id') }}</span>
+                        @endif
+                    </div>
 
               <hr>
-              {!! Form::submit('Create new post', ['class'=> 'btn btn-primary'])!!}
+              {!! Form::submit('Create new Blog', ['class'=> 'btn btn-primary'])!!}
 
               {!! Form::close() !!}
               <!-- /.box-body -->
