@@ -16,7 +16,8 @@ class BlogController extends BackendController
     public function index()
     {
         $posts=Post::with('category','author')->latest()->paginate($this->limit);
-        return view("backend.blog.index",compact('posts'));
+        $postCount = Post::count();
+        return view("backend.blog.index",compact('posts','postCount'));
     }
 
     /**
@@ -24,9 +25,9 @@ class BlogController extends BackendController
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Post $post)
     {
-        dd("create works");
+        return view("backend.blog.create",compact('post'));
     }
 
     /**
