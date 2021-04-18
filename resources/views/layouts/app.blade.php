@@ -21,19 +21,8 @@
 
 </head>
 <body class="hold-transition login-page">
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
+      
             @yield('content')
-        </main>
-    </div>
-</body>
 <<!-- jQuery 2.2.3 -->
 <script src="/backend/js/jquery-2.2.3.min.js"></script>
 <!-- Bootstrap 3.3.6 -->

@@ -4,12 +4,15 @@ namespace App\Models;
 
 // use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
 use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Post extends Model
 
 {
+    use SoftDeletes;
+
     protected $fillable = ['title','slug','exerpt','body','published_at','category_id','image'];
     protected $dates = ['published_at'];
     public function author()
@@ -99,6 +102,16 @@ class Post extends Model
     public function setPublishedAtAttribute($value)
     {
        $this->attributes['published_at'] = $value ?: NULL;
+    }
+
+    public function scopeScheduled($query)
+    {
+        return $query->where("published_at", ">", Carbon::now());
+    }
+
+    public function scopeDraft($query)
+    {
+        return $query->whereNull("published_at");
     }
 
 }
