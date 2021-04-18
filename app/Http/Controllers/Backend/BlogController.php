@@ -9,7 +9,7 @@ use Illuminate\Support\Str;
 
 class BlogController extends BackendController
 {
-    protected $limit=7;
+    
     protected $uploadPath;
     /**
      * Display a listing of the resource.

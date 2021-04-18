@@ -18,8 +18,8 @@ class CategoriesTableSeeder extends Seeder
         
         DB::table('categories')->insert([
             [
-                'title'=>'Web Design',
-                'slug'=>'Web Design'
+                'title'=>'Uncategorised',
+                'slug'=>'uncategorised'
             ],
             [
 

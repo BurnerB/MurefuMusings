@@ -47,7 +47,7 @@
               <!-- /.box-header -->
               
               <div class="box-body ">
-              @include('backend.blog.message')
+              @include('backend.partials.message')
               
               @if(!$posts->count())
                     <div class="alert alert-danger">
