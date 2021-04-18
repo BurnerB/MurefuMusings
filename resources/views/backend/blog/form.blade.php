@@ -18,7 +18,7 @@
                 <span class="help-block">{{ $errors->first('slug') }}</span>
             @endif
         </div>
-        <div class="form-group excerpt">
+        <div class="form-group excerpt ">
             {!! Form::label('exerpt') !!}
             {!! Form::textarea('exerpt', null, ['class' => 'form-control']) !!}
         </div>

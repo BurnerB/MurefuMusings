@@ -25,8 +25,7 @@
                                     <li><i class="fa fa-comments"></i><a href="#">4 Comments</a></li>
                                 </ul>
                             </div>
-<!-- Non escape just render directly -->
-<!-- Escape it with laravel e helper function -->
+                            
                             {!! $post->body_html !!}
                         </div>
                     </div>

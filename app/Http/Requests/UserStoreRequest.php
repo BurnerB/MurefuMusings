@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class CategoryDestroyRequest extends Request
+class UserStoreRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,12 +13,7 @@ class CategoryDestroyRequest extends Request
      */
     public function authorize()
     {
-        return !($this->route('categories') == config('cms.default_category_id'));
-    }
-
-    public function forbiddenResponse()
-    {
-        return redirect()->back()->with('error-message', 'You cannot delete default category!');
+        return true;
     }
 
     /**
@@ -29,7 +24,9 @@ class CategoryDestroyRequest extends Request
     public function rules()
     {
         return [
-            //
+            'name'     => 'required',
+            'email'    => 'email|required|unique:users',
+            'password' => 'required|confirmed'
         ];
     }
 }
