@@ -78,7 +78,6 @@ class BlogController extends BackendController
      */
     public function create(Post $post)
     {
-        
         return view("backend.blog.create",compact('post'));
     }
 
