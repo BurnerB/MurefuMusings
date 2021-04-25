@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>@yield('title', 'MyBlog')</title>
+  <title>@yield('title', 'Murefus Musings')</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.6 -->
@@ -42,9 +42,8 @@
 
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Version</b> 2.3.6
-    </div>
-    <strong>Copyright &copy; 2014-2016 <a href="http://almsaeedstudio.com">Almsaeed Studio</a>.</strong> All rights
+      <b>Version</b>1.0.1     </div>
+    <strong>Copyright &copy; 2021 <a href="https://burnerb.github.io/Portfolio">BurnerB</a>.</strong> All rights
     reserved.
   </footer>
 

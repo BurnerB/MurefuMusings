@@ -181,4 +181,9 @@ class Post extends Model
         $this->tags()->sync($tagIds);
     }
 
+    public function getTagsListAttribute()
+{
+    return $this->tags->pluck('name');
+}
+
 }
