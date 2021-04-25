@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Category;
+use App\Models\Post;
 use DB;
 
 use Illuminate\Database\Seeder;
@@ -15,45 +17,39 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         DB::table('categories')->truncate();
-        
+
         DB::table('categories')->insert([
             [
-                'title'=>'Uncategorised',
-                'slug'=>'uncategorised'
+                'title' => 'Uncategorized',
+                'slug' => 'uncategorized'
             ],
             [
-
-                'title'=>'Web Programming',
-                'slug'=>'Web Programming'
+                'title' => 'Tips and Tricks',
+                'slug' => 'tips-and-tricks'
             ],
             [
-
-                'title'=>'IOT',
-                'slug'=>'IOT'
+                'title' => 'Build Apps',
+                'slug' => 'build-apps'
             ],
             [
-
-                'title'=>'Networking',
-                'slug'=>'Networking'
+                'title' => 'News',
+                'slug' => 'news'
             ],
             [
-
-                'title'=>'Automation',
-                'slug'=>'Automation'
-            ],
-            [
-
-                'title'=>'Creeping',
-                'slug'=>'Creeping'
+                'title' => 'Freebies',
+                'slug' => 'freebies'
             ],
         ]);
+
         // update the posts data
-        // for($post_id=1; $post_id<=10; $post_id++)
-        // {
-        //     $category_id = rand(1,6);
-        //    DB::table('posts')
-        //         ->where('id',$post_id)
-        //         ->update(['category_id'=> $category_id]);
-        // }
+        foreach (Post::pluck('id') as $postId)
+        {
+            $categories = Category::pluck('id');
+            $categoryId = $categories[rand(0, $categories->count()-1)];
+
+            DB::table('posts')
+                ->where('id', $postId)
+                ->update(['category_id' => $categoryId]);
+        }
     }
 }

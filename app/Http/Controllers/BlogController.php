@@ -8,20 +8,21 @@ use App\Http\Requests;
 
 use App\Models\Post;
 use App\Models\User;
+use App\Models\Tag;
 
 use App\Models\Category;
 
 class BlogController extends Controller
 {
-    protected $limit=3;
+    protected $limit=5;
     //TODO--simple pagination not working properly
     // dont use lazy loading
     // display most recent post first
     public function index(){
-        $posts =Post::with('author')
+        $posts =Post::with('author','tags','category')
         ->latestFirst()
         ->published()
-        ->filter(request('term'))
+        ->filter(request()->only(['term', 'year', 'month']))
         ->simplePaginate($this->limit);
 
         return view("blog.index",compact('posts'));
@@ -32,19 +33,32 @@ class BlogController extends Controller
         $categoryName = $category->title;
         
         $posts =$category->posts()
-                        ->with('author')
+                        ->with('author','tags')
                         ->latestFirst()
                         ->published()
                         ->simplePaginate($this->limit);
 
         return view("blog.index",compact('posts','categoryName'));
     }
+    public function tag(Tag $tag)
+    {
+        $tagName = $tag->title;
+
+        $posts = $tag->posts()
+                          ->with('author', 'category')
+                          ->latestFirst()
+                          ->published()
+                          ->simplePaginate($this->limit);
+
+         return view("blog.index", compact('posts', 'tagName'));
+    }
+
     public function author(User $author)
     {
         $authorName = $author->name;
         
         $posts =$author->posts()
-                        ->with('category')
+                        ->with('category','tags')
                         ->latestFirst()
                         ->published()
                         ->simplePaginate($this->limit);

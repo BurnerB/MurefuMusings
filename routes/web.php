@@ -30,6 +30,10 @@ Route::get('/category/{category}', [
 Route::get('/author/{author}', [
     BlogController::class,'author'
     ])->name('author');
+
+Route::get('/tag/{tag}', [
+    BlogController::class,'tag'
+    ])->name('tag');
     
 
 Auth::routes();
