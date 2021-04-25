@@ -92,7 +92,7 @@ class Post extends Model
            return '<span class="label label-warning"> Draft</span>';
        }
        elseif($this->published_at && $this->published_at->isFuture()){
-        return '<span class="label label-info"> Schedule</span>';
+        return '<span class="label label-info"> Scheduled</span>';
        }
        else{
         return '<span class="label label-success"> Published</span>'; 
@@ -112,6 +112,24 @@ class Post extends Model
     public function scopeDraft($query)
     {
         return $query->whereNull("published_at");
+    }
+
+    public function scopeFilter($query, $term)
+    {
+        // check if any term entered
+        if ($term)
+        {
+            $query->where(function($q) use ($term) {
+                // $q->whereHas('author', function($qr) use ($term) {
+                //     $qr->where('name', 'LIKE', "%{$term}%");
+                // });
+                // $q->orWhereHas('category', function($qr) use ($term) {
+                //     $qr->where('title', 'LIKE', "%{$term}%");
+                // });
+                $q->orWhere('title', 'LIKE', "%{$term}%");
+                $q->orWhere('exerpt', 'LIKE', "%{$term}%");
+            });
+        }
     }
 
 }

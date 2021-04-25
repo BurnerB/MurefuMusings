@@ -1,9 +1,9 @@
 <?php
-
 namespace Database\Seeders;
 
-use App\Models\Permission;
 use Illuminate\Database\Seeder;
+use App\Models\Permission;
+use App\Models\Role;
 use App\Models\User;
 use DB;
 
@@ -48,13 +48,13 @@ class PermissionsTableSeeder extends Seeder
         $editor = Role::whereName('editor')->first();
         $author = Role::whereName('author')->first();
 
-        $admin->detachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory, $crudUser]);
+        $admin->detachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory, 'crud-user']);
         $admin->attachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory, $crudUser]);
 
         $editor->detachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory]);
         $editor->attachPermissions([$crudPost, $updateOthersPost, $deleteOthersPost, $crudCategory]);
 
-        $author->detachPermission($crudPost);
-        $author->attachPermission($crudPost);
+        $author->detachPermission('crud-post');
+        $author->attachPermission('crud-post');
     }
 }

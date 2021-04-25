@@ -4,6 +4,7 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
 {
     // current user
     $currentUser = $request->user();
+    
 
     // current action name
     if ($actionName) {
@@ -31,6 +32,7 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
 
     foreach ($crudPermissionsMap as $permission => $methods)
     {
+        // dd($currentUser->hasrole('editor'));
         // if the current method exists in methods list,
         // we'll check the permission
         if (in_array($method, $methods) && isset($classesMap[$controller]))
@@ -43,8 +45,9 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
 
                 // if the current user has not update-others-post/delete-others-post permission
                 // make sure she/he only modify his/her own post
+                
                 if ( $id &&
-                    (!$currentUser->can('update-others-post') || !$currentUser->can('delete-others-post')) )
+                    (!$currentUser->isAbleTo('update-others-post') || !$currentUser->isAbleTo('delete-others-post')) )
                 {
                     $post = \App\Models\Post::withTrashed()->find($id);
                     if ($post->author_id !== $currentUser->id) {
@@ -53,7 +56,7 @@ function check_user_permissions($request, $actionName = NULL, $id = NULL)
                 }
             }
             // if the user has not permission don't allow the next request
-            elseif ( ! $currentUser->can("{$permission}-{$className}")) {
+            elseif ( ! $currentUser->isAbleTo("{$permission}-{$className}")) {
                 return false;
             }
 

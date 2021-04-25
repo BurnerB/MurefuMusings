@@ -3,7 +3,6 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Http\Request;
 
 class CheckPermissionsMiddleware
 {
@@ -14,7 +13,7 @@ class CheckPermissionsMiddleware
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
     {
         if ( ! check_user_permissions($request)) {
             abort(403, "Forbidden access!");
