@@ -63,6 +63,9 @@
     </footer>
 
     <script src="js/bootstrap.min.js"></script>
+    <div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="DeW69KYH"></script>
     
 </body>
+
 </html>

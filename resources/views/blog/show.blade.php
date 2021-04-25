@@ -53,7 +53,7 @@
                     </div>
                 </article>
 
-                <!-- comments here -->
+                @include('blog.comments')
             </div>
     
     
