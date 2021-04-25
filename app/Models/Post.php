@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 use GrahamCampbell\Markdown\Facades\Markdown;
 
 class Post extends Model
@@ -160,6 +161,24 @@ class Post extends Model
                         ->groupBy('year', 'month')
                         ->orderByRaw('min(published_at) desc')
                         ->get();
+    }
+
+    public function createTags($str)
+    {
+        $tags = explode(",", $str);
+        $tagIds = [];
+
+        foreach ($tags as $tag)
+        {
+            $newTag = Tag::firstOrCreate([
+                'slug' => str_slug($tag),
+                'name' => ucwords(trim($tag))
+            ]);
+
+            $tagIds[] = $newTag->id;
+        }
+
+        $this->tags()->sync($tagIds);
     }
 
 }
