@@ -1,5 +1,7 @@
 <?php
 
+namespace App\helpers;
+
 function check_user_permissions($request, $actionName = NULL, $id = NULL)
 {
     // current user
