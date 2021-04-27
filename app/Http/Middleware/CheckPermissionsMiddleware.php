@@ -2,7 +2,7 @@
 
 namespace App\Http\Middleware;
 
-use helpers\permissions;
+use helpers\permissions\check_user_permissions;
 use Closure;
 
 class CheckPermissionsMiddleware
