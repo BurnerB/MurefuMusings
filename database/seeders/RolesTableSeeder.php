@@ -17,7 +17,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('roles')->truncate();
+        DB::table('roles')->delete();
 
         // Create Admin role
         $admin = new Role();
@@ -39,18 +39,22 @@ class RolesTableSeeder extends Seeder
 
         // Attach the roles
         // first user as admin
-        $user1 = User::find(1);
+        $user1 = User::first();
         $user1->detachRole($admin);
         $user1->attachRole($admin);
 
-        // second user as editor
-        $user2 = User::find(2);
-        $user2->detachRole($editor);
-        $user2->attachRole($editor);
+        if (env('APP_ENV') === 'local')
+        {
+            // second user as editor
+            $user2 = User::find(2);
+            $user2->detachRole($editor);
+            $user2->attachRole($editor);
 
-        // third user as author
-        $user3 = User::find(3);
-        $user3->detachRole($author);
-        $user3->attachRole($author);
+            // third user as author
+            $user3 = User::find(3);
+            $user3->detachRole($author);
+            $user3->attachRole($author);
+        }
     }
 }
+

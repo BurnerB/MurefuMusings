@@ -7,9 +7,9 @@ return [
     'create_users' => false,
 
     /**
-     * Control if all the laratrust tables should be truncated before running the seeder.
+     * Control if all the laratrust tables should be deleted before running the seeder.
      */
-    'truncate_tables' => true,
+    'delete_tables' => true,
 
     'roles_structure' => [
         'superadministrator' => [

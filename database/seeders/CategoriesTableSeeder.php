@@ -16,30 +16,40 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->truncate();
+        DB::table('categories')->delete();
 
-        DB::table('categories')->insert([
-            [
+        if (env('APP_ENV') === 'local')
+        {
+            DB::table('categories')->insert([
+                [
+                    'title' => 'Uncategorized',
+                    'slug' => 'uncategorized'
+                ],
+                [
+                    'title' => 'Tips and Tricks',
+                    'slug' => 'tips-and-tricks'
+                ],
+                [
+                    'title' => 'Build Apps',
+                    'slug' => 'build-apps'
+                ],
+                [
+                    'title' => 'News',
+                    'slug' => 'news'
+                ],
+                [
+                    'title' => 'Freebies',
+                    'slug' => 'freebies'
+                ],
+            ]);
+        }
+        else
+        {
+            DB::table('categories')->insert([
                 'title' => 'Uncategorized',
                 'slug' => 'uncategorized'
-            ],
-            [
-                'title' => 'Tips and Tricks',
-                'slug' => 'tips-and-tricks'
-            ],
-            [
-                'title' => 'Build Apps',
-                'slug' => 'build-apps'
-            ],
-            [
-                'title' => 'News',
-                'slug' => 'news'
-            ],
-            [
-                'title' => 'Freebies',
-                'slug' => 'freebies'
-            ],
-        ]);
+            ]);
+        }
 
         // update the posts data
         foreach (Post::pluck('id') as $postId)
@@ -53,3 +63,4 @@ class CategoriesTableSeeder extends Seeder
         }
     }
 }
+

@@ -16,26 +16,26 @@ class TagsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tags')->truncate();
+        DB::table('tags')->delete();
 
         $php = new Tag();
-        $php->name = "PHP";
+        $php->name = 'PHP';
         $php->slug = "php";
         $php->save();
 
         $laravel = new Tag();
-        $laravel->name = "Laravel";
-        $laravel->slug = "Laravel";
+        $laravel->name = 'Laravel';
+        $laravel->slug = 'Laravel';
         $laravel->save();
 
         $symphony = new Tag();
-        $symphony->name = "Symphony";
-        $symphony->slug = "symphony";
+        $symphony->name = 'Symphony';
+        $symphony->slug = 'symphony';
         $symphony->save();
 
         $vue = new Tag();
-        $vue->name = "Vue JS";
-        $vue->slug = "vuejs";
+        $vue->name = 'Vue JS';
+        $vue->slug = 'vuejs';
         $vue->save();
 
         $tags = [

@@ -20,6 +20,7 @@ class BlogController extends Controller
     // display most recent post first
     public function index(){
         $posts =Post::with('author','tags','category')
+        
         ->latestFirst()
         ->published()
         ->filter(request()->only(['term', 'year', 'month']))
@@ -29,7 +30,6 @@ class BlogController extends Controller
     }
 
     public function category(Category $category){
-        
         $categoryName = $category->title;
         
         $posts =$category->posts()
@@ -68,6 +68,7 @@ class BlogController extends Controller
 
     public function show(Post $post)
     {
+        
         //  prevent id of non published urls being put in url
 
         $post->increment('view_count');

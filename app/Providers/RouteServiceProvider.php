@@ -54,7 +54,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('post', Post::class);
         $router = app('router');
          Route::bind('post', function($value) {
-            return Post::where('id', $value)->orWhere('slug', $value)->first();
+            return Post::where('slug', $value)->first();
          });
     }
 

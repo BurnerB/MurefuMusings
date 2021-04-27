@@ -17,7 +17,7 @@ class PostsTableSeeder extends Seeder
     public function run()
     {
         // reset the posts table
-        DB::table('posts')->truncate();
+        DB::table('posts')->delete();
 
         // generate 36 dummy posts data
         $posts = [];
@@ -26,7 +26,7 @@ class PostsTableSeeder extends Seeder
 
         for ($i = 1; $i <= 36; $i++)
         {
-            $image = "Post_Image_" . rand(1, 5) . ".jpg";
+            $image = 'Post_Image_' . rand(1, 5) . '.jpg';
             $date->addDays(10);
             $publishedDate = clone($date);
             $createdDate   = clone($date);

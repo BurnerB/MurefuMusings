@@ -25,6 +25,8 @@ class AlterPostsAddViewCountColumn extends Migration
      */
     public function down()
     {
-        $table->dropColumn('view_count');
+        Schema::table('posts', function(Blueprint $table) {
+            $table->dropColumn('view_count');
+        });
     }
 }

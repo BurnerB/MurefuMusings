@@ -3,7 +3,7 @@
         <div class="search-widget">
             <form action="{{ route('blog') }}">
                 <div class="input-group">
-                  <input type="text" class="form-control input-lg" value="{{ request('term') }}" name="term" placeholder="Search for...">
+                  <input type="text" class="form-control input-lg" value="{{ request('term') }}" name="term" placeholder="Search for post...">
                   <span class="input-group-btn">
                     <button class="btn btn-lg btn-default" type="submit">
                         <i class="fa fa-search"></i>
@@ -77,7 +77,7 @@
                 <ul class="categories">
                     @foreach($archives as $archive)
                         <li>
-                            <a href="{{ route('blog', ['month' => $archive->month, 'year' => $archive->year]) }}">{{ $archive->month . " " . $archive->year }}</a>
+                            <a href="{{ route('blog', ['month' => $archive->month, 'year' => $archive->year]) }}">{{ month_name($archive->month) . " " . $archive->year }}</a>
                             <span class="badge pull-right">{{ $archive->post_count }}</span>
                         </li>
                     @endforeach
