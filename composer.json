@@ -54,6 +54,7 @@
             "php artisan optimize"
         ]
     },
+    
     "config": {
         "preferred-install": "dist"
     }
