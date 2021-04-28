@@ -52,7 +52,7 @@ class UsersTableSeeder extends Seeder
                     'name' => "Administrator",
                     'slug' => 'admin',
                     'email' => "murefuwriter20@gmail.com",
-                    'password' => bcrypt('!L^DH;p4sQ_^T4_'),
+                    'password' => bcrypt('Password'),
                     'bio' => "I'm an Administrator"
                 ]
             ]);
