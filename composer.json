@@ -29,8 +29,8 @@
             "App\\": "app/"
         },
         "files": [
-            "app/Helpers/permissions.php",
-            "app/Helpers/date.php"
+            "../app/Helpers/permissions.php",
+            "../app/Helpers/date.php"
         ]
     },
     "autoload-dev": {
