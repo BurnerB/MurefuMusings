@@ -13,7 +13,7 @@ class Post extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['title', 'slug', 'excerpt', 'body', 'published_at', 'category_id', 'image'];
+    protected $fillable = ['title', 'slug', 'exerpt', 'body', 'published_at', 'category_id', 'image'];
     protected $dates    = ['published_at'];
 
     public function author()
@@ -161,41 +161,43 @@ class Post extends Model
 
     public static function archives()
     {
-        if (env("DB_CONNECTION") === 'pgsql') {
+
+        // dd(env("DB_CONNECTION"));
+        // if (env("DB_CONNECTION") === 'pgsql') {
             return static::selectRaw('count(id) as post_count, extract(year from published_at) as year, extract(month from published_at) as month')
                             ->published()
                             ->groupBy('year', 'month')
                             ->orderByRaw('min(published_at) desc')
                             ->get();
-        }
-        else {
-            return static::selectRaw('count(id) as post_count, year(published_at) year, month(published_at) month')
-                            ->published()
-                            ->groupBy('year', 'month')
-                            ->orderByRaw('min(published_at) desc')
-                            ->get();
+        // }
+        // else {
+        //     return static::selectRaw('count(id) as post_count, year(published_at) year, month(published_at) month')
+        //                     ->published()
+        //                     ->groupBy('year', 'month')
+        //                     ->orderByRaw('min(published_at) desc')
+        //                     ->get();
 
-        }
+        // }
     }
 
     public function scopeFilter($query, $filter)
     {
         if (isset($filter['month']) && $month = $filter['month']) {
-            if (env('DB_CONNECTION') === 'pgsql') {
+            // if (env('DB_CONNECTION') === 'pgsql') {
                 $query->whereRaw('extract(month from published_at) = ?', [$month]);
-            }
-            else {
-                $query->whereRaw('month(published_at) = ?', [$month]);
-            }
+            // }
+            // else {
+            //     $query->whereRaw('month(published_at) = ?', [$month]);
+            // }
         }
 
         if (isset($filter['year']) && $year = $filter['year']) {
-            if (env('DB_CONNECTION') === 'pgsql') {
+            // if (env('DB_CONNECTION') === 'pgsql') {
                 $query->whereRaw('extract(year from published_at) = ?', [$year]);
-            }
-            else {
-                $query->whereRaw('year(published_at) = ?', [$year]);
-            }
+            // }
+            // else {
+            //     $query->whereRaw('year(published_at) = ?', [$year]);
+            // }
         }
 
         // check if any term entered

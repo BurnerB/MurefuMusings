@@ -21,7 +21,7 @@
               <!-- /.box-header -->
               <div class="box-body ">
                     <h3>Welcome to Murefu's Musings</h3>
-                    <p class="lead text-muted">Hello {{Auth::user()->name }}, Welcome to MyBlog</p>
+                    <p class="lead text-muted">Hello {{Auth::user()->name }}, Welcome</p>
 
                     <h4>Get started</h4>
                     <p><a href="{{route('backend.blog.create') }}" class="btn btn-primary">Write your first blog post</a> </p>

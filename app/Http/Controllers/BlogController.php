@@ -74,4 +74,10 @@ class BlogController extends Controller
         $post->increment('view_count');
         return view("blog.show", compact('post'));
     }
+
+    public function contact(Post $post)
+    {
+        
+        return view("blog.contact");
+    }
 }

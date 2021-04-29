@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactUsFormController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +18,9 @@ Route::get('/', [
     BlogController::class,'index'
     ])->name('blog');
 
+Route::get('/contact', [ContactUsFormController::class, 'createForm'])->name('contact');
+
+Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 Route::get('/blog/{post}', [
     BlogController::class,'show'
@@ -34,6 +38,8 @@ Route::get('/author/{author}', [
 Route::get('/tag/{tag}', [
     BlogController::class,'tag'
     ])->name('tag');
+
+
     
 
 Auth::routes();
@@ -41,6 +47,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\Backend\HomeController::class, 'index'])->name('home');
 Route::get('/edit-account', [App\Http\Controllers\Backend\HomeController::class, 'edit'])->name('edit');
 Route::put('/edit-account', [App\Http\Controllers\Backend\HomeController::class, 'update'])->name('update');
+
 
 Route::put('/backend/blog/restore/{blog}', [
     App\Http\Controllers\Backend\BlogController::class,'restore'
@@ -61,8 +68,4 @@ Route::get('/backend/users/confirm/{users}', [
     ])->name('backend.users.confirm'
 );
 
-Route::get('/backend/users/confirm/{users}', [
-    'uses' => 'Backend\UsersController@confirm',
-    'as' => 'backend.users.confirm'
-]);
 
