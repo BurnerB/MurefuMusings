@@ -209,4 +209,25 @@ class BlogController extends BackendController
             if ( file_exists($imagePath) ) unlink($imagePath);
         }
     }
+
+    public function banner(Request $request)
+    {
+        $onlyTrashed = FALSE;
+        $posts       = Post::published()->with('category', 'author')->latest()->paginate($this->limit);
+        $postCount   = Post::published()->count();
+        $statusList = $this->statusList($request);
+
+        return view("backend.blog.banner", compact('posts', 'postCount', 'onlyTrashed', 'statusList'));
+    }
+
+    public function bannerUpdate($id)
+    {
+        $Post = Post::where('id', '=', e($id))->first();
+        $Post->isBanner = 1;
+                Post::query()
+                ->where('id', '!=', $id)
+                ->update(['isBanner' => 0]);
+        $Post->save();   
+        return redirect()->back()->with('message', 'Banner Updated Successfully');
+    }
 }

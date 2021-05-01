@@ -9,9 +9,9 @@
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<!--====== Title ======-->
-	<title> Genial Blog Html Template || Home One </title>
+	<title> MUREFUS' MUSINGS </title>
 	<!--====== Favicon Icon ======-->
-	<link rel="shortcut icon" href="/img/favicon.ico" type="img/png" />
+	<link rel="shortcut icon" href="/img/icoooon.png" type="img/png" />
 	<!--====== Animate Css ======-->
 	<link rel="stylesheet" href="/css/animate.min.css">
 	<!--====== Bootstrap css ======-->
@@ -38,7 +38,7 @@
 		<div class="container-fluid">
 			<div class="d-flex align-items-center justify-content-between">
 				<div class="site-logo">
-					<a href="{{ route('blog') }}"><img src="/img/logo.png" alt="Genial"></a>
+					<a href="{{ route('blog') }}"><h4>MUREFUS' MUSINGS</h4></a>
 				</div>
 				<div class="header-right">
 
@@ -72,16 +72,9 @@
 							<ul class="offcanvas-menu">
 								<li>
 									<a href="{{ route('blog') }}">Home</a>
-									<ul class="submenu">
-										<li><a href="index.html">Home One</a></li>
-										<li><a href="index-2.html">Home Two</a></li>
-										<li><a href="index-3.html">Home Three</a></li>
-										<li><a href="index-4.html">Home Four</a></li>
-									</ul>
 								</li>
-								<li><a href="about.html">About</a></li>
-								<li><a href="contact.html">Contact</a></li>
-								<li><a href="404.html">404</a></li>
+								<li><a href="{{ route('about') }}">About</a></li>
+								<li><a href="{{ route('contact') }}">Contact</a></li>
 							</ul>
 
 							<div class="social-icons">
@@ -106,73 +99,7 @@
   @yield('content')
 	<!--====== Post Area End ======-->
 
-	<!--====== Instagram Area Start ======-->
-	<section class="instagram-section">
-		<div class="container-fluid p-0">
-			<h5 class="instagram-title">
-				Follow Us <span class="instagram-icon"><i class="fab fa-instagram"></i></span> Instagram
-			</h5>
-			<div class="instagram-images">
-				<div class="image">
-					<img src="/img/instagram/01.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/02.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/03.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/04.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/05.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/06.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/07.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/01.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/02.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/03.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/04.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/05.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/06.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-				<div class="image">
-					<img src="/img/instagram/07.jpg" alt="Instagram-image">
-					<a class="instagram-link" href="#"><i class="fab fa-instagram"></i></a>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!--====== Instagram Area End ======-->
+	
 
 	<!--====== Footer Area Start ======-->
 	<footer>
@@ -227,7 +154,7 @@
 					</div>
 					<div class="col-lg-6 col-12">
 						<div class="copyright-text text-lg-right">
-							<p><span>Copyright</span> - 2020 EasyArt theme by Easygoods</p>
+							<p><span>Copyright</span> - 2021 Murefus' Musings</p>
 						</div>
 					</div>
 				</div>

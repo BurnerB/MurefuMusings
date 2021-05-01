@@ -48,7 +48,7 @@
 			@include('blog.comments')
 		</div>
 	</section>
-
+	@include('blog.testimonials')
 @endsection
 
 

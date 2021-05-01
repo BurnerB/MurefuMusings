@@ -41,8 +41,9 @@ class PostsTableSeeder extends Seeder
                 'created_at'   => $createdDate,
                 'updated_at'   => $createdDate,
                 'published_at' => $i < 30 ? $publishedDate : ( rand(0, 1) == 0 ? NULL : $publishedDate->addDays(4) ),
-                'view_count'   => rand(1, 10) * 10
-            ];
+                'view_count'   => rand(1, 10) * 10,
+                'isBanner'      => 0
+           ];
         }
 
         DB::table('posts')->insert($posts);

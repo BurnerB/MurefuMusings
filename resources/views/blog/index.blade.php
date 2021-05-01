@@ -56,7 +56,5 @@
 			</div>
 		</div>
 	</section>
-
-  <!-- end of posts -->
-
+	@include('blog.testimonials')
 @endsection

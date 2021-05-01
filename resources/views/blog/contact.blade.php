@@ -1,90 +1,56 @@
-@extends ('layouts.main')
+@extends('layouts.main')
 
 @section('content')
-<div class="container ">
-        <div class="row">
-            <div class="col-md-5">
 
-                <!-- Success message -->
-                @if(Session::has('success'))
-                    <div class="alert alert-success">
-                        {{Session::get('success')}}
-                    </div>
-                @endif
-                <div class="border-top-0">
-                        <h1>
-                        <small>Contact me</small>
-                    </h1>
-                    <form action="" method="post" action="{{ route('contact.store') }}">
+	<!--====== Comtact Section Start ======-->
+	<section class="contact-section">
+		<div class="container">
+			<div class="row align-items-center justify-content-center">
+				<div class="col-lg-6 col-md-10">
+					<div class="contact-maps">
+						<iframe
+							src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d8954.810692863524!2d36.71045850678234!3d-1.2198267399159075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2ske!4v1619905109483!5m2!1sen!2ske"
+							allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+							
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-10">
+					<div class="contact-text">
+						<h4 class="title">
+							If you would like to join us on our journey around the world and beyond, then you can follow
+							us on a social media channels
+						</h4>
+						<div class="infomations">
+							<h4 class="title">Have a question ?</h4>
+							<p>Contact us at : <span>example@mail.com</span></p>
+						</div>
+						<div class="contact-form">
+							<form action="#">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="text" placeholder="Name*">
+									</div>
+									<div class="col-lg-6">
+										<input type="email" placeholder="Email*">
+									</div>
+									<div class="col-12">
+										<textarea placeholder="Your message"></textarea>
+									</div>
+									<div class="col-12 text-center">
+										<button type="submit">Submit</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!--====== Comtact Section End ======-->
 
-                        @csrf
 
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" class="form-control {{ $errors->has('name') ? 'error' : '' }}" name="name" id="name">
+</html>
 
-                            <!-- Error -->
-                            @if ($errors->has('name'))
-                            <div class="error">
-                                {{ $errors->first('name') }}
-                            </div>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" class="form-control {{ $errors->has('email') ? 'error' : '' }}" name="email" id="email">
-
-                            @if ($errors->has('email'))
-                            <div class="error">
-                                {{ $errors->first('email') }}
-                            </div>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <label>Phone</label>
-                            <input type="text" class="form-control {{ $errors->has('phone') ? 'error' : '' }}" name="phone" id="phone">
-
-                            @if ($errors->has('phone'))
-                            <div class="error">
-                                {{ $errors->first('phone') }}
-                            </div>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <label>Subject</label>
-                            <input type="text" class="form-control {{ $errors->has('subject') ? 'error' : '' }}" name="subject"
-                                id="subject">
-
-                            @if ($errors->has('subject'))
-                            <div class="error">
-                                {{ $errors->first('subject') }}
-                            </div>
-                            @endif
-                        </div>
-
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea class="form-control {{ $errors->has('message') ? 'error' : '' }}" name="message" id="message"
-                                rows="4"></textarea>
-
-                            @if ($errors->has('message'))
-                            <div class="error">
-                                {{ $errors->first('message') }}
-                            </div>
-                            @endif
-                        </div>
-
-                        <input type="submit" name="send" value="Submit" class="btn btn-primary">
-                    </form>
-                </div>
-    
-            </div>
-        </div>
-</div>
-
+    @include('blog.testimonials')
 @endsection
-
-

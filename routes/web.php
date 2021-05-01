@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactUsFormController;
+use App\Http\Controllers\AboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,13 +15,13 @@ use App\Http\Controllers\ContactUsFormController;
 |
 */
 
-Route::get('/', [
-    BlogController::class,'index'
-    ])->name('blog');
+Route::get('/', [BlogController::class,'index'])->name('blog');
 
 Route::get('/contact', [ContactUsFormController::class, 'createForm'])->name('contact');
-
 Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
+
+
+Route::get('/about', [AboutController::class, 'about'])->name('about');
 
 Route::get('/blog/{post}', [
     BlogController::class,'show'
@@ -68,4 +69,11 @@ Route::get('/backend/users/confirm/{users}', [
     ])->name('backend.users.confirm'
 );
 
+Route::get('/backend/banner', [
+    App\Http\Controllers\Backend\BlogController::class,'banner'
+    ])->name('backend.blog.banner');
+
+Route::post('/backend/banner/{id}', [
+        App\Http\Controllers\Backend\BlogController::class,'bannerUpdate'
+        ])->name('backend.blog.bannerUpdate');
 
