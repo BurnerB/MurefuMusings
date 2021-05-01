@@ -14,7 +14,7 @@ use App\Models\Category;
 
 class BlogController extends Controller
 {
-    protected $limit=5;
+    protected $limit=6;
     //TODO--simple pagination not working properly
     // dont use lazy loading
     // display most recent post first
@@ -27,6 +27,7 @@ class BlogController extends Controller
         ->simplePaginate($this->limit);
 
         return view("blog.index",compact('posts'));
+    
     }
 
     public function category(Category $category){

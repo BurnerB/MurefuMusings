@@ -2,62 +2,61 @@
 
 @section('content')
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                @if (! $posts->count())
-                    <div class="alert alert-warning">
-                        <p>Nothing Found</p>
-                    </div>
-                @else
-                    @include('blog.alert')
+<!-- Banner -->
 
-                    @foreach($posts as $post)
+  @include('blog.banner')
+  <!-- end of banner -->
 
-                        <article class="post-item">
-                            @if ($post->image_url)
-                                <div class="post-item-image">
-                                    <a href="{{ route('blog.show', $post->slug) }}">
-                                        <img src="{{ $post->image_url }}" alt="">
-                                    </a>
-                                </div>
-                            @endif
+  <!-- posts -->
 
-                            <div class="post-item-body">
-                                <div class="padding-10">
-                                    <h2><a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a></h2>
+<section class="post-area with-sidebar" id="postWarpperLoaded">
+		<div class="container container-1250">
+			<div class="post-area-inner">
+				<div class="entry-posts two-column masonary-posts row">
+        @foreach($posts as $post)
+					<div class="col-lg-6 col-sm-6">
+						<div class="entry-post">
+							<div class="entry-thumbnail">
+              <img src="{{ ($post->image_url) ? $post->image_url : '/img/posts/default_blog.jpg' }}" alt="...">
+							</div>
+							<div class="entry-content">
+								<h4 class="title">
+									<a href="{{ route('blog.show', $post->slug) }}">
+                  {{ $post->title }}
+									</a>
+								</h4>
+								<ul class="post-meta">
+									<li class="date">
+										<a href="#">{{ $post->date }}</a>
+									</li>
+									<li class="categories">
+										<a href="#">{!! $post->tags_html !!}</a>
+									</li>
+								</ul>
+								<p>
+                {!! $post->exerpt !!}
+								</p>
+								<a href="{{ route('blog.show', $post->slug) }}" class="read-more">
+									Read More <i class="fas fa-long-arrow-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+          @endforeach
+          
+					<div class="col-12">
+						<div class="text-center">
+							<a href="#" class="load-more-btn">Load More</a>
+						</div>
+					</div>
+          
+				</div>
+				<!-- sidebar -->
+        @include('layouts.sidebar')
+			</div>
+		</div>
+	</section>
 
-                                    <!-- {{print_r($post->exerpt)}} -->
-                                    {!! $post->exerpt !!}
-                                </div>
-
-                                <div class="post-meta padding-10 clearfix">
-                                    <div class="pull-left">
-                                        <ul class="post-meta-group">
-                                            <li><i class="fa fa-user"></i><a href="{{ route('author', $post->author->slug) }}"> {{ $post->author->name }}</a></li>
-                                            <li><i class="fa fa-clock-o"></i><time> {{ $post->date }}</time></li>
-                                            <li><i class="fa fa-folder"></i><a href="{{ route('category', $post->category->slug) }}"> {{ $post->category->title }}</a></li>
-                                            <li><i class="fa fa-tag"></i>{!! $post->tags_html !!}</li>
-                                        </ul>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="{{ route('blog.show', $post->slug) }}">Continue Reading &raquo;</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </article>
-
-                    @endforeach
-
-                @endif
-
-                <nav>
-                  {{ $posts->appends(request()->only(['term', 'month', 'year']))->links() }}
-                </nav>
-            </div>
-
-            @include('layouts.sidebar')
-        </div>
-    </div>
+  <!-- end of posts -->
 
 @endsection

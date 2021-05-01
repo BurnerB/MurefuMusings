@@ -1,89 +1,76 @@
-<div class="col-md-4">
-    <aside class="right-sidebar">
-        <div class="search-widget">
-            <form action="{{ route('blog') }}">
-                <div class="input-group">
-                  <input type="text" class="form-control input-lg" value="{{ request('term') }}" name="term" placeholder="Search for post...">
-                  <span class="input-group-btn">
-                    <button class="btn btn-lg btn-default" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                  </span>
-                </div>
-            </form>
-        </div>
+<div class="primary-sidebar clearfix">
+					<div class="sidebar-masonary row justify-content-center">
+						<div class="col-lg-12 col-md-6 col-sm-8 widget author-widget">
+							<div class="author-img">
+								<img src="/img/sidebar/author.jpg" alt="Post-Author">
+							</div>
+							<h5 class="widget-title">I am a Writer</h5>
+							<p>
+								When it comes to creating is a website for your business, an attractive design will only
+								get you far,...
+							</p>
+							<div class="author-signature">
+								<img src="/img/sidebar/author-signature.png" alt="Signature">
+							</div>
+						</div>
 
-        <div class="widget">
-            <div class="widget-heading">
-                <h4>Categories</h4>
-            </div>
-            <div class="widget-body">
-                <ul class="categories">
-                    @foreach ($categories as $category)
-                        <li>
-                            <a href="{{ route('category', $category->slug) }}"><i class="fa fa-angle-right"></i> {{ $category->title }}</a>
-                            <span class="badge pull-right">{{ $category->posts->count() }}</span>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
+                        <div class="col-lg-12 col-md-6 col-sm-8 widget popular-articles">
+							<h5 class="widget-title">Popular Articles</h5>
+							<div class="articles">
 
-        <div class="widget">
-            <div class="widget-heading">
-                <h4>Popular Posts</h4>
-            </div>
-            <div class="widget-body">
-                <ul class="popular-posts">
-                    @foreach ($popularPosts as $post)
-                        <li>
-                            @if ($post->image_thumb_url)
-                                <div class="post-image">
-                                    <a href="{{ route('blog.show', $post->slug) }}">
-                                        <img src="{{ $post->image_thumb_url }}" />
-                                    </a>
-                                </div>
-                            @endif
-                            <div class="post-body">
-                                <h6><a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a></h6>
-                                <div class="post-meta">
-                                    <span>{{ $post->date }}</span>
-                                </div>
-                            </div>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
+                            @foreach ($popularPosts as $post)
+								<div class="article">
+									<div class="thumb">
+                                        <img src="{{ ($post->image_url) ? $post->image_url : '/img/posts/default_blog.jpg' }}" alt="...">
+									</div>
+									<div class="desc">
+                                    <h6><a href="{{ route('blog.show', $post->slug) }}">{{ $post->title }}</a></h6>
+										<span class="post-date">{{ $post->date }}</span>
+									</div>
+								</div>
+                            @endforeach					
+							</div>
+						</div>
 
-        <div class="widget">
-            <div class="widget-heading">
-                <h4>Tags</h4>
-            </div>
-            <div class="widget-body">
-                <ul class="tags">
-                    @foreach($tags as $tag)
-                        <li><a href="{{ route('tag', $tag->slug) }}">{{ $tag->name }}</a></li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
 
-        <div class="widget">
-            <div class="widget-heading">
-                <h4>Archives</h4>
-            </div>
-            <div class="widget-body">
-                <ul class="categories">
-                    @foreach($archives as $archive)
-                        <li>
+						<div class="col-lg-12 col-md-6 col-sm-8 widget categories-widget">
+							<h5 class="widget-title">Categories</h5>
+							<div class="categories">
+                            @foreach ($categories as $category)
+                                    <a href="{{ route('category', $category->slug) }}"><i class="fa fa-angle-right"></i> {{ $category->title }}</a>
+                                    <span class="badge pull-right">{{ $category->posts->count() }}</span>
+                            @endforeach	
+							</div>
+						</div>
+						<div class="col-lg-12 col-md-6 col-sm-8 widget social-widget">
+							<h5 class="widget-title">Subscribe</h5>
+							<div class="social-links">
+								<a href="#">
+									<i class="fab fa-facebook-f"></i>Facebook
+								</a>
+								<a href="#">
+									<i class="fab fa-twitter"></i>Twitter
+								</a>
+								<a href="#">
+									<i class="fab fa-instagram"></i>Instagram
+								</a>
+								<a href="#">
+									<i class="fab fa-youtube"></i>YouTube
+								</a>
+								<a href="#">
+									<i class="fab fa-pinterest-p"></i>Pinterest
+								</a>
+							</div>
+						</div>
+						
+						<div class="col-lg-12 col-md-6 col-sm-8 widget categories-widget">
+							<h5 class="widget-title">Archives</h5>
+							<div class="categories">
+                            @foreach($archives as $archive)
                             <a href="{{ route('blog', ['month' => $archive->month, 'year' => $archive->year]) }}">{{ month_name($archive->month) . " " . $archive->year }}</a>
                             <span class="badge pull-right">{{ $archive->post_count }}</span>
-                        </li>
-                    @endforeach
-                </ul>
-            </div>
-        </div>
-
-    </aside>
-</div>
+                            @endforeach	
+							</div>
+						</div>
+					</div>
+				</div>
