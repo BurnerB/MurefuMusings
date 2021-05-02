@@ -4276,11 +4276,13 @@ footer .footer-copyright-area .copyright-text span {
 /* testimonials */
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
-
+html {
+    scroll-behavior: smooth;
+  }
 
 .wrapper {
     background-color: black;
-    margin: 100px auto;
+    margin: 10px auto;
     padding: 110px 120px;
     width: auto;
     display: flex;
@@ -4299,6 +4301,7 @@ footer .footer-copyright-area .copyright-text span {
 
 .testimonial {
     padding: 20px 40px;
+    word-wrap: break-word;
     position: relative
 }
 

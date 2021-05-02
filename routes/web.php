@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\AboutController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -64,6 +65,8 @@ Route::resource('/backend/categories', 'Backend\CategoriesController',['as'=>'ba
 
 Route::resource('/backend/users', 'Backend\UsersController',['as'=>'backend']);
 
+Route::resource('/backend/testimony', 'Backend\TestimonyController',['as'=>'backend']);
+
 Route::get('/backend/users/confirm/{users}', [
     App\Http\Controllers\Backend\UsersController::class,'confirm'
     ])->name('backend.users.confirm'
@@ -76,4 +79,5 @@ Route::get('/backend/banner', [
 Route::post('/backend/banner/{id}', [
         App\Http\Controllers\Backend\BlogController::class,'bannerUpdate'
         ])->name('backend.blog.bannerUpdate');
+
 

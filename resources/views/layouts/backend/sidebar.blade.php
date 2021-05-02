@@ -42,6 +42,9 @@
       @if (check_user_permissions(request(), "Users@index"))
         <li><a href="{{ route('backend.blog.banner') }}"><i class="fa fa-image"></i> <span>Banner</span></a></li>
       @endif
+      @if (check_user_permissions(request(), "Users@index"))
+      <li><a href="{{ route('backend.testimony.index') }}"><i class="fa fa-bullhorn"></i> <span>Testimonials</span></a></li>
+      @endif
     </ul>
   </section>
   <!-- /.sidebar -->
