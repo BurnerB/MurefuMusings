@@ -45,6 +45,9 @@
       @if (check_user_permissions(request(), "Users@index"))
       <li><a href="{{ route('backend.testimony.index') }}"><i class="fa fa-bullhorn"></i> <span>Testimonials</span></a></li>
       @endif
+      @if (check_user_permissions(request(), "Users@index"))
+      <li><a href="{{ route('backend.misc.index') }}"><i class="fa fa-random"></i> <span>Misc</span></a></li>
+      @endif
     </ul>
   </section>
   <!-- /.sidebar -->

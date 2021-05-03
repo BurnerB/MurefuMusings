@@ -81,9 +81,9 @@
 							<div class="social-icons">
 								<ul>
 									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+									<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
 									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+									<li><a href="#"><i class="fab fa-medium"></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -147,8 +147,7 @@
 								<li class="title">Follow Me</li>
 								<li><a href="#">Twitter</a></li>
 								<li><a href="#">Facebook</a></li>
-								<li><a href="#">Youtube</a></li>
-								<li><a href="#">Instagram</a></li>
+								<li><a href="#">Medium</a></li>
 								<li><a href="#">Linkedin</a></li>
 							</ul>
 						</div>

@@ -67,6 +67,8 @@ Route::resource('/backend/users', 'Backend\UsersController',['as'=>'backend']);
 
 Route::resource('/backend/testimony', 'Backend\TestimonyController',['as'=>'backend']);
 
+Route::resource('/backend/misc', 'Backend\MiscController',['as'=>'backend']);
+
 Route::get('/backend/users/confirm/{users}', [
     App\Http\Controllers\Backend\UsersController::class,'confirm'
     ])->name('backend.users.confirm'

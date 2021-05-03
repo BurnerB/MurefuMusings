@@ -43,7 +43,7 @@
 							</div>
 						</div>
 						<div class="col-lg-12 col-md-6 col-sm-8 widget social-widget">
-							<h5 class="widget-title">Subscribe</h5>
+							<h5 class="widget-title">Follow Me</h5>
 							<div class="social-links">
 								<a href="#">
 									<i class="fab fa-facebook-f"></i>Facebook
@@ -52,13 +52,10 @@
 									<i class="fab fa-twitter"></i>Twitter
 								</a>
 								<a href="#">
-									<i class="fab fa-instagram"></i>Instagram
+									<i class="fab fa-medium"></i>Medium
 								</a>
 								<a href="#">
-									<i class="fab fa-youtube"></i>YouTube
-								</a>
-								<a href="#">
-									<i class="fab fa-pinterest-p"></i>Pinterest
+									<i class="fab fa-linkedin"></i>Linkedin
 								</a>
 							</div>
 						</div>
