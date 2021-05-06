@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use Mail;
+use App\Models\Testimonials;
 
 class ContactUsFormController extends Controller {
 
     // Create Contact Form
     public function createForm(Request $request) {
-      return view('blog.contact');
+        $testimony = Testimonials::all();
+      return view('blog.contact',compact('testimony'));
     }
 
     // Store Contact Form data
