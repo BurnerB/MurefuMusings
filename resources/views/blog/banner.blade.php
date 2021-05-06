@@ -5,7 +5,7 @@
 				<div class="banner-wrapper">
 				@foreach($posts as $post)
 					@if ($post->isBanner)
-						<img src="{{ ($post->image_url) ? $post->image_url : '/img/posts/default_blog.jpg' }}" alt="...">
+					<div class="banner-bg" style="background-image: url({{ ($post->image_url) ? $post->image_url : '/img/posts/default_blog.jpg' }});"></div>
 							<div class="banner-content" data-animation="fadeInUp" data-delay="0.3s">
 								<h3 class="title" data-animation="fadeInUp" data-delay="0.6s">
 									<a href="{{ route('blog.show', $post->slug) }}">
@@ -28,4 +28,5 @@
 			</div>
 		</div>
 		<div class="banner-nav"></div>
-	</section>
+</section>
+
