@@ -1,7 +1,5 @@
 @if (isset($categoryName))
-    <div class="alert alert-info">
         <p>Category: <strong>{{ $categoryName }}</strong></p>
-    </div>
 @endif
 
 @if (isset($tagName))

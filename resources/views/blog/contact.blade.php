@@ -17,7 +17,7 @@
 				<div class="col-lg-6 col-md-10">
 					<div class="contact-text">
 						<h4 class="title">
-							If you would like to join us on our journey around the world and beyond, then you can follow
+							If you would like to join us on our journey , then you can follow
 							us on a social media channels
 						</h4>
 						<div class="infomations">
@@ -25,16 +25,42 @@
 							<p>Contact us at : <span>example@mail.com</span></p>
 						</div>
 						<div class="contact-form">
-							<form action="#">
+						<!-- Success message -->
+						@if(Session::has('success'))
+							<div class="alert alert-success">
+								{{Session::get('success')}}
+							</div>
+						@endif
+						
+							<form action="" method="post" action="{{ route('contact.store') }}">
+							@csrf
 								<div class="row">
 									<div class="col-lg-6">
-										<input type="text" placeholder="Name*">
+										<input type="text" class="{{ $errors->has('name') ? 'error' : '' }}" placeholder="Name*">
+										<!-- Error -->
+										@if ($errors->has('name'))
+											<div class="error">
+												{{ $errors->first('name') }}
+											</div>
+										@endif
+
 									</div>
 									<div class="col-lg-6">
-										<input type="email" placeholder="Email*">
+										<input type="email" class="{{ $errors->has('email') ? 'error' : '' }}" placeholder="Email*">
+										@if ($errors->has('email'))
+											<div class="error">
+												{{ $errors->first('email') }}
+											</div>
+										@endif
 									</div>
+
 									<div class="col-12">
-										<textarea placeholder="Your message"></textarea>
+										<textarea class="{{ $errors->has('message') ? 'error' : '' }}"  placeholder="Your message"></textarea>
+										@if ($errors->has('message'))
+											<div class="error">
+												{{ $errors->first('message') }}
+											</div>
+										@endif
 									</div>
 									<div class="col-12 text-center">
 										<button type="submit">Submit</button>

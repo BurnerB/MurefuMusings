@@ -11,9 +11,15 @@
 
 <section class="post-area with-sidebar" id="postWarpperLoaded">
 		<div class="container container-1250">
+			@if (! $posts->count())
+                        <p>Nothing Found!!</p>
+                @else
+                    @include('blog.alert')
+				@endif
 			<div class="post-area-inner">
-				<div class="entry-posts two-column masonary-posts row">
-        @foreach($posts as $post)
+			
+					<div class="entry-posts two-column masonary-posts row">
+        			@foreach($posts as $post)
 					<div class="col-lg-6 col-sm-6">
 						<div class="entry-post">
 							<div class="entry-thumbnail">
@@ -43,10 +49,9 @@
 						</div>
 					</div>
           @endforeach
-          
 					<div class="col-12">
 						<div class="text-center">
-							<a href="#" class="load-more-btn">Load More</a>
+							<a href="{{ $posts->appends(request()->only(['term', 'month', 'year']))->links() }}" class="load-more-btn">Load More</a>
 						</div>
 					</div>
           
