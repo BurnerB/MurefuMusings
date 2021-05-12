@@ -75,7 +75,6 @@
 								</li>
 								<li><a href="{{ route('about') }}">About</a></li>
 								<li><a href="{{ route('contact') }}">Contact</a></li>
-								<li><a href="#testimonial_095">Testimonials</a></li>
 							</ul>
 
 							<div class="social-icons">
