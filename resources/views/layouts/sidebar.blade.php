@@ -28,7 +28,7 @@
 										<span class="post-date">{{ $post->date }}</span>
 									</div>
 								</div>
-                            @endforeach					
+                            @endforeach
 							</div>
 						</div>
 
@@ -39,34 +39,34 @@
                             @foreach ($categories as $category)
                                     <a href="{{ route('category', $category->slug) }}"><i class="fa fa-angle-right"></i> {{ $category->title }}</a>
                                     <span class="badge pull-right">{{ $category->posts->count() }}</span>
-                            @endforeach	
+                            @endforeach
 							</div>
 						</div>
 						<div class="col-lg-12 col-md-6 col-sm-8 widget social-widget">
 							<h5 class="widget-title">Follow Me</h5>
 							<div class="social-links">
-								<a href="#">
+								<a href="{{ $facebook->value }}" target="_blank">
 									<i class="fab fa-facebook-f"></i>Facebook
 								</a>
-								<a href="#">
+								<a href="{{ $twitter->value }}" target="_blank">
 									<i class="fab fa-twitter"></i>Twitter
 								</a>
-								<a href="#">
+								<a href="{{ $medium->value }}" target="_blank">
 									<i class="fab fa-medium"></i>Medium
 								</a>
-								<a href="#">
+								<a href="{{ $linkedin->value }}" target="_blank">
 									<i class="fab fa-linkedin"></i>Linkedin
 								</a>
 							</div>
 						</div>
-						
+
 						<div class="col-lg-12 col-md-6 col-sm-8 widget categories-widget">
 							<h5 class="widget-title">Archives</h5>
 							<div class="categories">
                             @foreach($archives as $archive)
                             <a href="{{ route('blog', ['month' => $archive->month, 'year' => $archive->year]) }}">{{ month_name($archive->month) . " " . $archive->year }}</a>
                             <span class="badge pull-right">{{ $archive->post_count }}</span>
-                            @endforeach	
+                            @endforeach
 							</div>
 						</div>
 					</div>

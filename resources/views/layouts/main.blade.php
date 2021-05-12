@@ -80,10 +80,10 @@
 
 							<div class="social-icons">
 								<ul>
-									<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-									<li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-									<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-									<li><a href="#"><i class="fab fa-medium"></i></a></li>
+                                    <li><a href="{{ $medium->value }}" target="_blank"><i class="fab fa-medium"></i></a></li>
+                                    <li><a href="{{ $linkedin->value }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="{{ $twitter->value }}" target="_blank"><i class="fab fa-twitter" target="_blank"></i></a></li>
+                                    <li><a href="{{ $facebook->value }}" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -100,7 +100,7 @@
   @yield('content')
 	<!--====== Post Area End ======-->
 
-	
+
 
 	<!--====== Footer Area Start ======-->
 	<footer>
@@ -110,8 +110,8 @@
 					<div class="col-lg-3 col-sm-6">
 						<div class="widget address-widget">
 							<h4 class="widget-title">Our Address</h4>
-							<p>Sydney, Australia Sheen Darus Salam. <br> 112/B, Road 8A, Dhanmondi.</p>
-							<p>+880-036987458765521 <br> example@yourmail.com</p>
+							<p>{{ $address->value }}</p>
+							<p>{{ $mobile->value }} <br> {{ $email->value }}</p>
 						</div>
 					</div>
 					<div class="col-lg-2 col-sm-6">
@@ -145,10 +145,10 @@
 						<div class="social-links">
 							<ul>
 								<li class="title">Follow Me</li>
-								<li><a href="#">Twitter</a></li>
-								<li><a href="#">Facebook</a></li>
-								<li><a href="#">Medium</a></li>
-								<li><a href="#">Linkedin</a></li>
+								<li><a href="{{ $twitter->value }}">Twitter</a></li>
+								<li><a href="{{ $facebook->value }}">Facebook</a></li>
+								<li><a href="{{ $medium->value }}">Medium</a></li>
+								<li><a href="{{ $linkedin->value }}">Linkedin</a></li>
 							</ul>
 						</div>
 					</div>
@@ -184,7 +184,7 @@
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v10.0" nonce="DeW69KYH"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
-    
+
 </body>
 
 </html>
