@@ -51,7 +51,7 @@
           @endforeach
 					<div class="col-12">
 						<div class="text-center">
-							<a href="{{ $posts->appends(request()->only(['term', 'month', 'year']))->links() }}" class="load-more-btn">Load More</a>
+							{{ $posts->appends(request()->only(['term', 'month', 'year']))->links() }}
 						</div>
 					</div>
           
