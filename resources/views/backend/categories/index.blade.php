@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Murefus Musings | Categories')
+@section('title', 'MUREFU WRITES| Categories')
 
 @section('content')
 

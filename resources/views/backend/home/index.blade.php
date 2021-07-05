@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Murefus Musings| Dashboard')
+@section('title', 'MUREFU WRITES| Dashboard')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -20,7 +20,7 @@
             <div class="box">
               <!-- /.box-header -->
               <div class="box-body ">
-                    <h3>Welcome to Murefu's Musings</h3>
+                    <h3>Welcome to Murefu Writes</h3>
                     <p class="lead text-muted">Hello {{Auth::user()->name }}, Welcome</p>
 
                     <h4>Get started</h4>

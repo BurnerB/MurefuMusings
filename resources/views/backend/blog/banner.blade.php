@@ -1,6 +1,6 @@
 @extends('layouts.backend.main')
 
-@section('title', 'Murefus Musings| Blog Index')
+@section('title', 'MUREFU WRITES| Blog Index')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

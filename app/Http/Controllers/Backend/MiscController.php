@@ -12,7 +12,14 @@ use Illuminate\Support\Facades\Auth;
 
 
 class MiscController extends BackendController
+        
 {
+    public function __construct()
+     {
+         parent::__construct();
+         $this->uploadPath = public_path('img');
+     }
+
     public function index(Request $request)
     {
         //$misc = Misc::orderBy('Person')->paginate($this->limit);
@@ -26,23 +33,44 @@ class MiscController extends BackendController
         $medium = setting::where('name', 'medium')->first();
         $linkedin = setting::where('name', 'linkedin')->first();
 
-
+        
         return view("backend.settings.settings",compact('about_image','about_text','mobile','email','address','twitter','medium','linkedin','facebook'));
     }
 
+    public function handleRequest($request)
+    {
+        $data = $request->all();
+        if($request->hasFile('about_image')){
+            $image= $request->file('about_image');
+            $fileName = $image->getClientOriginalName();
+            $destination = $this->uploadPath;
+            $image->move($destination,$fileName);
+
+            $data['about_image']=$fileName;
+        }
+
+        return $data;
+    }
+    
+
     public function store(Request $request)
     {
+        if($request->hasFile('about_image'))
+        {
+            $about_image = setting::where('name','about_image')->first();
 
-            $this->validate($request,[
-                'about_image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5048',
-            ]);
+            $current_image = 'storage/files/settings/icon_avatar.png';
 
-            if($request->hasFile('about_image'))
+            //delete old banner first
+            if(file_exists($current_image))
             {
-                $about_image = setting::where('name','about_image')->first();
-                $about_image->value = $request->about_image->store('public/files/setting');
-                $about_image->save();
+                unlink($current_image);
             }
+            $about_image->value = $request->about_image->store('public/backend/img');
+            $about_image->save();
+        }
+
+
 
             $email = setting::where('name','email')->first();
             $email->value = $request->email;
@@ -77,8 +105,6 @@ class MiscController extends BackendController
             $about_text->save();
 
             return redirect()->back()->with('success','setting updated successfully');
-
-
     }
 
     public function edit($id)

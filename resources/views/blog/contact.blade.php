@@ -21,53 +21,27 @@
 							us on a social media channels
 						</h4>
 						<div class="infomations">
-							<h4 class="title">Have a question ?</h4>
-							<p>Contact us at : <span>example@mail.com</span></p>
+							<h4 class="title">Have a question ? Contact Me</h4>
 						</div>
-						<div class="contact-form">
-						<!-- Success message -->
-						@if(Session::has('success'))
-							<div class="alert alert-success">
-								{{Session::get('success')}}
-							</div>
-						@endif
+						<br>
+						<!--Grid column-->
+						<div class="col-md-3 text-center">
+							<ul class="list-unstyled mb-0">
+								<li><i class="fas fa-map-marker-alt fa-2x"></i>
+									<p>{{$address->value}}</p>
+								</li>
+								<br>
+								<li><i class="fas fa-phone mt-4 fa-2x"></i>
+									<p>{{$mobile->value}}</p>
+								</li>
+								<br>
+								<li><i class="fas fa-envelope mt-4 fa-2x"></i>
+									<p>{{$email->value}}</p>
+								</li>
+							</ul>
+						</div>
+        <!--Grid column-->
 						
-							<form action="" method="post" action="{{ route('contact.store') }}">
-							@csrf
-								<div class="row">
-									<div class="col-lg-6">
-										<input type="text" class="{{ $errors->has('name') ? 'error' : '' }}" placeholder="Name*">
-										<!-- Error -->
-										@if ($errors->has('name'))
-											<div class="error">
-												{{ $errors->first('name') }}
-											</div>
-										@endif
-
-									</div>
-									<div class="col-lg-6">
-										<input type="email" class="{{ $errors->has('email') ? 'error' : '' }}" placeholder="Email*">
-										@if ($errors->has('email'))
-											<div class="error">
-												{{ $errors->first('email') }}
-											</div>
-										@endif
-									</div>
-
-									<div class="col-12">
-										<textarea class="{{ $errors->has('message') ? 'error' : '' }}"  placeholder="Your message"></textarea>
-										@if ($errors->has('message'))
-											<div class="error">
-												{{ $errors->first('message') }}
-											</div>
-										@endif
-									</div>
-									<div class="col-12 text-center">
-										<button type="submit">Submit</button>
-									</div>
-								</div>
-							</form>
-						</div>
 					</div>
 				</div>
 			</div>

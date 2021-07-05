@@ -9,7 +9,7 @@
 	<meta name="description" content="" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 	<!--====== Title ======-->
-	<title> MUREFUS' MUSINGS </title>
+	<title> MUREFUS' WRITES </title>
 	<!--====== Favicon Icon ======-->
 	<link rel="shortcut icon" href="/img/icoooon.png" type="img/png" />
 	<!--====== Animate Css ======-->
@@ -38,7 +38,7 @@
 		<div class="container-fluid">
 			<div class="d-flex align-items-center justify-content-between">
 				<div class="site-logo">
-					<a href="{{ route('blog') }}"><h4>MUREFUS' MUSINGS</h4></a>
+					<a href="{{ route('blog') }}"><h4>MUREFU WRITES</h4></a>
 				</div>
 				<div class="header-right">
 
@@ -79,6 +79,7 @@
 
 							<div class="social-icons">
 								<ul>
+							
                                     <li><a href="{{ $medium->value }}" target="_blank"><i class="fab fa-medium"></i></a></li>
                                     <li><a href="{{ $linkedin->value }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
                                     <li><a href="{{ $twitter->value }}" target="_blank"><i class="fab fa-twitter" target="_blank"></i></a></li>

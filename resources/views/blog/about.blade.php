@@ -7,7 +7,8 @@
 			<div class="row align-items-center justify-content-center">
 				<div class="col-lg-6 col-md-8">
 					<div class="about-img">
-						<img src="{{ Storage::url($about_image->value) }}" alt="Image">
+						<img src="{{ $about_image->value }}" alt="Image">
+						
 					</div>
 				</div>
 				<div class="col-lg-6 col-md-10">

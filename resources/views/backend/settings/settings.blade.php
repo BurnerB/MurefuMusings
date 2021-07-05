@@ -43,11 +43,12 @@
                     <div class="box-body">
                         @include('includes.messages')
                         <div class="col-md-offset-3 col-md-6">
-
-
                             <div class="form-group text-center">
                                 <div class="form-group text-center">
-                                    <img src="{{ Storage::url($about_image->value) }}"  alt="User Image" id="preview" height="150px" width="150px" onchange="previewImage(this)">
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                    <img src="{{ Storage::url($about_image->value) }}" alt="...">
+                                    </div>
+
                                 </div>
                                 <div class="file">
                                     <label for="avatar" class="btn bg-navy btn-flat"><span class="fa fa-upload"></span> Upload about us image</label>
@@ -67,22 +68,22 @@
 
                             <div class="form-group">
                                 <label for="slug">Facebook</label>
-                                <input type="url" class="form-control" id="slug" name="facebook" placeholder="Fb page link" required="required" value="{{ $facebook->value }}">
+                                <input type="url" class="form-control" id="slug" name="facebook" placeholder="Fb page link"  value="{{ $facebook->value }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Twitter</label>
-                                <input type="url" class="form-control" id="slug" name="twitter" placeholder="Twitter page link" required="required" value="{{ $twitter->value }}">
+                                <input type="url" class="form-control" id="slug" name="twitter" placeholder="Twitter page link"  value="{{ $twitter->value }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Linkedin</label>
-                                <input type="url" class="form-control" id="slug" name="linkedin" placeholder="Linkedin page link" required="required" value="{{ $linkedin->value }}">
+                                <input type="url" class="form-control" id="slug" name="linkedin" placeholder="Linkedin page link"  value="{{ $linkedin->value }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Medium</label>
-                                <input type="url" class="form-control" id="slug" name="medium" placeholder="Medium page link" required="required" value="{{ $medium->value }}">
+                                <input type="url" class="form-control" id="slug" name="medium" placeholder="Medium page link"  value="{{ $medium->value }}">
                             </div>
 
                             <div class="form-group">

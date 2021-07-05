@@ -26,6 +26,7 @@ class PostRequest extends Request
         $rules = [
             'title'        => 'required',
             'slug'         => 'required|unique:posts',
+            'exerpt'       => 'required',
             'body'         => 'required',
             'category_id'  => 'required',
             'image'        => 'mimes:jpg,jpeg,bmp,png',

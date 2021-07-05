@@ -18,9 +18,14 @@
                 <span class="help-block">{{ $errors->first('slug') }}</span>
             @endif
         </div>
-        <div class="form-group excerpt ">
+        <div class="form-group excerpt {{ $errors->has('exerpt') ? 'has-error' : '' }} ">
             {!! Form::label('exerpt') !!}
             {!! Form::textarea('exerpt', null, ['class' => 'form-control']) !!}
+
+            @if($errors->has('exerpt'))
+                <span class="help-block">{{ $errors->first('exerpt') }}</span>
+            @endif
+
         </div>
         <div class="form-group {{ $errors->has('body') ? 'has-error' : '' }}">
             {!! Form::label('body') !!}
