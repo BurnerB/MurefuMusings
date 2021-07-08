@@ -15,7 +15,6 @@ class SettingsSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Factory::create();
         $image = 'Post_Image_' . rand(1, 5) . '.jpg';
         DB::table('settings')->delete();
 
