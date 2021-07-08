@@ -117,6 +117,7 @@ class BlogController extends BackendController
             $image->move($destination,$fileName);
 
             $data['image']=$fileName;
+            
         }
 
         return $data;
@@ -156,6 +157,7 @@ class BlogController extends BackendController
     {
         $post     = Post::findOrFail($id);
         $oldImage = $post->image;
+        
         $data     = $this->handleRequest($request);
 
         $post->update($data);
@@ -164,6 +166,7 @@ class BlogController extends BackendController
         if ($oldImage !== $post->image) {
             $this->removeImage($oldImage);
         }
+        
         return redirect('/backend/blog')->with('message', 'Your post was updated successfully!');
     }
 
@@ -204,6 +207,7 @@ class BlogController extends BackendController
         if ( ! empty($image) )
         {
             $imagePath     = $this->uploadPath . '/' . $image;
+            
             $ext           = substr(strrchr($image, '.'), 1);
 
             if ( file_exists($imagePath) ) unlink($imagePath);

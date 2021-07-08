@@ -107,7 +107,8 @@
                 <div class="fileinput fileinput-new" data-provides="fileinput">
                   <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
     
-                    <img src="{{ ($post->image_url) ? $post->image_url : 'http://placeholder.it/200x150&text=No+Image' }}" alt="...">
+
+                    <img src="{{ ($post->image_url) ? $post->image_url : '/img/posts/unnamed.jpg' }}" alt="No image">
                   </div>
                   <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                   <div>

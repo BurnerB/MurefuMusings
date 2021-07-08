@@ -14,10 +14,15 @@ class CreateSettingsTable extends Migration
     public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('value')->nullable();
-            $table->timestamps();
+            $table->string('about_text')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('email')->nullable();
+            $table->string('address')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('medium')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('about_image')->nullable();
         });
     }
 

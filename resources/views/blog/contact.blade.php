@@ -26,17 +26,15 @@
 						<br>
 						<!--Grid column-->
 						<div class="col-md-3 text-center">
-							<ul class="list-unstyled mb-0">
+							<ul class="list-unstyled mb-4">
 								<li><i class="fas fa-map-marker-alt fa-2x"></i>
-									<p>{{$address->value}}</p>
+									<p>{{$settings->address}}</p>
 								</li>
-								<br>
 								<li><i class="fas fa-phone mt-4 fa-2x"></i>
-									<p>{{$mobile->value}}</p>
+									<p>{{$settings->mobile}} </p>
 								</li>
-								<br>
 								<li><i class="fas fa-envelope mt-4 fa-2x"></i>
-									<p>{{$email->value}}</p>
+									<p>{{$settings->email}}</p>
 								</li>
 							</ul>
 						</div>

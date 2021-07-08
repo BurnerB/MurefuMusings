@@ -80,10 +80,10 @@
 							<div class="social-icons">
 								<ul>
 							
-                                    <li><a href="{{ $medium->value }}" target="_blank"><i class="fab fa-medium"></i></a></li>
-                                    <li><a href="{{ $linkedin->value }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
-                                    <li><a href="{{ $twitter->value }}" target="_blank"><i class="fab fa-twitter" target="_blank"></i></a></li>
-                                    <li><a href="{{ $facebook->value }}" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a></li>
+                                    <li><a href="{{ $settings->medium }}" target="_blank"><i class="fab fa-medium"></i></a></li>
+                                    <li><a href="{{ $settings->linkedin }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                    <li><a href="{{ $settings->twitter }}" target="_blank"><i class="fab fa-twitter" target="_blank"></i></a></li>
+                                    <li><a href="{{ $settings->facebook }}" target="_blank"><i class="fab fa-facebook-f" target="_blank"></i></a></li>
 								</ul>
 							</div>
 						</div>
@@ -110,8 +110,8 @@
 					<div class="col-lg-3 col-sm-6">
 						<div class="widget address-widget">
 							<h4 class="widget-title">Our Address</h4>
-							<p>{{ $address->value }}</p>
-							<p>{{ $mobile->value }} <br> {{ $email->value }}</p>
+							<p>{{ $settings->address }}</p>
+							<p>{{ $settings->mobile }} <br> {{ $settings->email }}</p>
 						</div>
 					</div>
 					<div class="col-lg-2 col-sm-6">
@@ -145,10 +145,10 @@
 						<div class="social-links">
 							<ul>
 								<li class="title">Follow Me</li>
-								<li><a href="{{ $twitter->value }}">Twitter</a></li>
-								<li><a href="{{ $facebook->value }}">Facebook</a></li>
-								<li><a href="{{ $medium->value }}">Medium</a></li>
-								<li><a href="{{ $linkedin->value }}">Linkedin</a></li>
+								<li><a href="{{ $settings->twitter }}">Twitter</a></li>
+								<li><a href="{{ $settings->facebook }}">Facebook</a></li>
+								<li><a href="{{ $settings->medium }}">Medium</a></li>
+								<li><a href="{{ $settings->linkedin }}">Linkedin</a></li>
 							</ul>
 						</div>
 					</div>

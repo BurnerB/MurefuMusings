@@ -19,7 +19,7 @@ use App\Http\Controllers\AboutController;
 Route::get('/', [BlogController::class,'index'])->name('blog');
 
 Route::get('/contact', [ContactUsFormController::class, 'createForm'])->name('contact');
-Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
+// Route::post('/contact', [ContactUsFormController::class, 'ContactUsForm'])->name('contact.store');
 
 
 Route::get('/about', [AboutController::class, 'about'])->name('about');
@@ -69,8 +69,18 @@ Route::resource('/backend/testimony', 'Backend\TestimonyController',['as'=>'back
 
 Route::resource('/backend/misc', 'Backend\MiscController',['as'=>'backend']);
 
+Route::get('/backend/misc', 
+[App\Http\Controllers\Backend\MiscController::class, 'index'
+])->name('backend.misc.index'
+);
+
+Route::post('/backend/misc/update', 
+[App\Http\Controllers\Backend\MiscController::class, 'update'
+])->name('backend.misc.update'
+);
+
 Route::get('/backend/users/confirm/{users}', [
-    App\Http\Controllers\Backend\UsersController::class,'confirm'
+    App\Http\Controllers\Backend\MiscController::class,'confirm'
     ])->name('backend.users.confirm'
 );
 

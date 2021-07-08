@@ -38,15 +38,16 @@
         <!-- Main content -->
         <section class="content">
             <div class="row">
-                <form role="form" action="{{ route('backend.misc.store') }}" method="post" enctype="multipart/form-data">
+                <form role="form" action="{{ route('backend.misc.update') }}" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="box-body">
                         @include('includes.messages')
                         <div class="col-md-offset-3 col-md-6">
                             <div class="form-group text-center">
                                 <div class="form-group text-center">
-                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
-                                    <img src="{{ Storage::url($about_image->value) }}" alt="...">
+                                <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">   
+
+                                    <img src="{{ ($settings->about_image) ? $settings->about_image : '/img/posts/unnamed.jpg'}}" alt="No image">
                                     </div>
 
                                 </div>
@@ -56,40 +57,41 @@
                                 </div>
                             </div>
 
+                            
                             <div class="form-group">
                                 <label for="slug">Mobile number</label>
-                                <input type="tel" class="form-control" id="slug" name="mobile" placeholder="+254 707 338839" required="required" value="{{ $mobile->value }}">
+                                <input type="tel" class="form-control" id="slug" name="mobile" placeholder="phone number" required="required" value="{{ $settings->mobile }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Email</label>
-                                <input type="email" class="form-control" id="slug" name="email" placeholder="support@codeisystems.co.ke" required="required" value="{{ $email->value }}">
+                                <input type="email" class="form-control" id="slug" name="email" placeholder="support@codeisystems.co.ke" required="required" value="{{ $settings->email }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Facebook</label>
-                                <input type="url" class="form-control" id="slug" name="facebook" placeholder="Fb page link"  value="{{ $facebook->value }}">
+                                <input type="url" class="form-control" id="slug" name="facebook" placeholder="Fb page link"  value="{{ $settings->facebook }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Twitter</label>
-                                <input type="url" class="form-control" id="slug" name="twitter" placeholder="Twitter page link"  value="{{ $twitter->value }}">
+                                <input type="url" class="form-control" id="slug" name="twitter" placeholder="Twitter page link"  value="{{ $settings->twitter}}">
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Linkedin</label>
-                                <input type="url" class="form-control" id="slug" name="linkedin" placeholder="Linkedin page link"  value="{{ $linkedin->value }}">
+                                <input type="url" class="form-control" id="slug" name="linkedin" placeholder="Linkedin page link"  value="{{ $settings->linkedin }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="slug">Medium</label>
-                                <input type="url" class="form-control" id="slug" name="medium" placeholder="Medium page link"  value="{{ $medium->value }}">
+                                <input type="url" class="form-control" id="slug" name="medium" placeholder="Medium page link"  value="{{ $settings->medium}}">
                             </div>
 
                             <div class="form-group">
                                 <label for="name">About text</label>
                                 <textarea class="form-control" rows="3" placeholder="" name="about_text">
-                                            {{ $about_text->value }}
+                                            {{ $settings->about_text}}
                                     </textarea>
 
                             </div>
@@ -98,40 +100,10 @@
                             <div class="form-group">
                                 <label for="name">Address</label>
                                 <textarea class="form-control" rows="3" placeholder="" name="address">
-                                            {{ $address->value }}
+                                            {{ $settings->address }}
                                         </textarea>
 
                             </div>
-
-
-                            {{--<div class="form-group">--}}
-                            {{--<label for="name">Short description</label>--}}
-                            {{--<textarea class="form-control" rows="3" placeholder="Write short description...." name="short_description">--}}
-                            {{--{{ $service->short_description }}--}}
-                            {{--</textarea>--}}
-
-                            {{--</div>--}}
-
-                            {{--<div class="form-group">--}}
-                            {{--<textarea name="description" id="editor1" style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;">--}}
-                            {{--{{ $service->description }}--}}
-                            {{--</textarea>--}}
-                            {{--</div>--}}
-
-
-                            {{--<div class="form-group">--}}
-                            {{--<label for="slug">Service status</label><br>--}}
-                            {{--<div class="checkbox">--}}
-                            {{--<label>--}}
-                            {{--<input type="checkbox" value="1" name="status"--}}
-                            {{--@if($service->status ==1)--}}
-                            {{--checked--}}
-                            {{--@endif--}}
-                            {{-->--}}
-                            {{--Activate--}}
-                            {{--</label>--}}
-                            {{--</div>--}}
-                            {{--</div>--}}
 
                         </div>
 

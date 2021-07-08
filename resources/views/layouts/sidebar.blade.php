@@ -2,16 +2,15 @@
 					<div class="sidebar-masonary row justify-content-center">
 						<div class="col-lg-12 col-md-6 col-sm-8 widget author-widget">
 							<div class="author-img">
-								<img src="/img/sidebar/author.jpg" alt="Post-Author">
+								<img src="{{$post->author->gravatar()}}" alt="Post-Author">
 							</div>
 							<h5 class="widget-title">I am a Writer</h5>
 							<p>
-								When it comes to creating is a website for your business, an attractive design will only
-								get you far,...
+							{{ $settings->about_text }}
 							</p>
-							<div class="author-signature">
+							<!-- <div class="author-signature">
 								<img src="/img/sidebar/author-signature.png" alt="Signature">
-							</div>
+							</div> -->
 						</div>
 
                         <div class="col-lg-12 col-md-6 col-sm-8 widget popular-articles">
@@ -45,16 +44,16 @@
 						<div class="col-lg-12 col-md-6 col-sm-8 widget social-widget">
 							<h5 class="widget-title">Follow Me</h5>
 							<div class="social-links">
-								<a href="{{ $facebook->value }}" target="_blank">
+								<a href="{{ $settings->facebook }}" target="_blank">
 									<i class="fab fa-facebook-f"></i>Facebook
 								</a>
-								<a href="{{ $twitter->value }}" target="_blank">
+								<a href="{{ $settings->twitter }}" target="_blank">
 									<i class="fab fa-twitter"></i>Twitter
 								</a>
-								<a href="{{ $medium->value }}" target="_blank">
+								<a href="{{ $settings->medium }}" target="_blank">
 									<i class="fab fa-medium"></i>Medium
 								</a>
-								<a href="{{ $linkedin->value }}" target="_blank">
+								<a href="{{ $settings->linkedin }}" target="_blank">
 									<i class="fab fa-linkedin"></i>Linkedin
 								</a>
 							</div>
