@@ -23,7 +23,7 @@ class SettingsSeeder extends Seeder
         {
             DB::table('settings')->insert([
                 [
-                    'about_text' => $faker->sentence(rand(8, 12)),
+                    'about_text' => "im a dummy sentence",
                     'mobile' => '+254 712345678',
                     'email' => 'ianachamwangi@gmail.com',
                     'address' => 'https://www.phpmyadmin.net/',
@@ -40,7 +40,7 @@ class SettingsSeeder extends Seeder
         {
             DB::table('settings')->insert([
                 [
-                    'about_text' => $faker->sentence(rand(8, 12)),
+                    'about_text' => "im a dummy sentence",
                     'mobile' => '+254 712345678',
                     'email' => 'ianachamwangi@gmail.com',
                     'address' => 'https://www.phpmyadmin.net/',

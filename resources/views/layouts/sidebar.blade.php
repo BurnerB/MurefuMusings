@@ -1,8 +1,8 @@
 <div class="primary-sidebar clearfix">
 					<div class="sidebar-masonary row justify-content-center">
 						<div class="col-lg-12 col-md-6 col-sm-8 widget author-widget">
-							<div class="author-img">
-								<img src="{{$post->author->gravatar()}}" alt="Post-Author">
+							<div style="max-width:100%; max-height:100%;">
+								<img src="/backend/{{$settings->about_image}}" alt="Post-Author">
 							</div>
 							<h5 class="widget-title">I am a Writer</h5>
 							<p>
