@@ -3,14 +3,14 @@
 @section('content')
 <div class="login-box">
   <div class="login-logo">
-    <a href="../../index2.html"><b>Murefus</b>Musings</a>
+    <a href="../../index2.html"><b>Murefus</b>Writes</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
 
     <form method="POST" action="{{ url('/login') }}">
-        {{csrf_field() }}
+        @csrf
 
       <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }} has-feedback">
         <input type="email" class="form-control" placeholder="Email" name="email" value="{{ old('email') }}">
@@ -48,7 +48,7 @@
     </form>
 
     <br>
-    <a href="{{ url('/password/reset')}}">I forgot my password</a><br>
+    <a href="{{ route('forget.password.get') }}">Reset/Forgot my password</a><br>
 
   </div>
   <!-- /.login-box-body -->

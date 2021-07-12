@@ -26,22 +26,6 @@
                 <span class="help-block">{{ $errors->first('email') }}</span>
             @endif
         </div>
-        <div class="form-group {{ $errors->has('password') ? 'has-error' : '' }}">
-            {!! Form::label('password') !!}
-            {!! Form::password('password', ['class' => 'form-control']) !!}
-
-            @if($errors->has('password'))
-                <span class="help-block">{{ $errors->first('password') }}</span>
-            @endif
-        </div>
-        <div class="form-group {{ $errors->has('password_confirmation') ? 'has-error' : '' }}">
-            {!! Form::label('password_confirmation') !!}
-            {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
-
-            @if($errors->has('password_confirmation'))
-                <span class="help-block">{{ $errors->first('password_confirmation') }}</span>
-            @endif
-        </div>
         <div class="form-group {{ $errors->has('role') ? 'has-error' : '' }}">
             {!! Form::label('role') !!}
             @if ($user->exists && ($user->id == config('cms.default_user_id') || isset($hideRoleDropdown)))

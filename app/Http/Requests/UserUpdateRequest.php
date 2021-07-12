@@ -25,9 +25,9 @@ class UserUpdateRequest extends Request
     {
         return [
             'name'     => 'required',
-            'email'    => 'email|required:users,email,' . $this->route("users"),
-            'password' => 'required_with:password_confirmation|confirmed',
+            'email'    => 'email|required',
             'role'     => 'required',
+            'slug'     => 'required',
         ];
     }
 }

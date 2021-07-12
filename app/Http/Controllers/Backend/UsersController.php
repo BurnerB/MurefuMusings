@@ -44,8 +44,7 @@ class UsersController extends BackendController
 {
     
     $data = $request->all();
-    
-        
+    $data["password"] = "Password";
     
     $data['password'] = bcrypt($data['password']);
     $user = User::create($data);
@@ -72,6 +71,7 @@ class UsersController extends BackendController
      */
     public function edit($id)
     {
+        
         $user = User::findOrFail($id);
 
         return view("backend.users.edit", compact('user'));

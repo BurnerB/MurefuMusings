@@ -25,11 +25,11 @@ class HomeController extends BackendController
         return view('backend.home.edit', compact('user'));
     }
 
-    public function update(Requests\AccountUpdateRequest $request)
+    public function update(Requests\UserUpdateRequest $request)
     {
         $user = $request->user();
         $user->update($request->all());
 
-        return redirect()->back()->with("message", "Account was update successfully!");
+        return redirect()->back()->with("message", "Account was updated successfully!");
     }
 }

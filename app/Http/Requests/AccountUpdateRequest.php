@@ -25,9 +25,10 @@ class AccountUpdateRequest extends Request
     {
         return [
             'name'     => 'required',
-            'email'    => 'email|required:users,email,' . auth()->user()->id,
+            'email'    => 'email|required|unique:users,email,' . auth()->user()->id,
             'password' => 'required_with:password_confirmation|confirmed',
             'role'     => 'required',
+            'slug'     => 'required|unique:users,slug,' . auth()->user()->id,
         ];
     }
 }

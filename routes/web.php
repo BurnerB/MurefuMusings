@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactUsFormController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\Auth\ForgotPasswordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +16,8 @@ use App\Http\Controllers\AboutController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+
 
 Route::get('/', [BlogController::class,'index'])->name('blog');
 
@@ -41,14 +44,21 @@ Route::get('/tag/{tag}', [
     BlogController::class,'tag'
     ])->name('tag');
 
+Route::get('forget-password', [
+    ForgotPasswordController::class, 'showForgetPasswordForm'
+    ])->name('forget.password.get');
 
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post'); 
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
     
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\Backend\HomeController::class, 'index'])->name('home');
-Route::get('/edit-account', [App\Http\Controllers\Backend\HomeController::class, 'edit'])->name('edit');
 Route::put('/edit-account', [App\Http\Controllers\Backend\HomeController::class, 'update'])->name('update');
+Route::get('/edit-account', [App\Http\Controllers\Backend\HomeController::class, 'edit'])->name('edit');
+
 
 
 Route::put('/backend/blog/restore/{blog}', [
@@ -67,7 +77,7 @@ Route::resource('/backend/users', 'Backend\UsersController',['as'=>'backend']);
 
 Route::resource('/backend/testimony', 'Backend\TestimonyController',['as'=>'backend']);
 
-Route::resource('/backend/misc', 'Backend\MiscController',['as'=>'backend']);
+// Route::resource('/backend/misc', 'Backend\MiscController',['as'=>'backend']);
 
 Route::get('/backend/misc', 
 [App\Http\Controllers\Backend\MiscController::class, 'index'
@@ -80,7 +90,7 @@ Route::post('/backend/misc/update',
 );
 
 Route::get('/backend/users/confirm/{users}', [
-    App\Http\Controllers\Backend\MiscController::class,'confirm'
+    App\Http\Controllers\Backend\UsersController::class,'confirm'
     ])->name('backend.users.confirm'
 );
 
