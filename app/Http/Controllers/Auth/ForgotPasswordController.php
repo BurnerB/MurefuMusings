@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace App\Http\Controllers\Auth; 
   
@@ -7,25 +7,18 @@ use Illuminate\Http\Request;
 use DB; 
 use Carbon\Carbon; 
 use App\Models\User; 
+use Mail; 
 use Hash;
 use Illuminate\Support\Str;
-// use Illuminate\Support\Facades\Mail;
-use Mail;
-
-
+  
 class ForgotPasswordController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Password Reset Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller is responsible for handling password reset emails and
-    | includes a trait which assists in sending these notifications from
-    | your application to your users. Feel free to explore this trait.
-    |
-    */
-    public function showForgetPasswordForm()
+      /**
+       * Write code on Method
+       *
+       * @return response()
+       */
+      public function showForgetPasswordForm()
       {
          return view('auth.passwords.email');
       }
@@ -62,7 +55,7 @@ class ForgotPasswordController extends Controller
        * @return response()
        */
       public function showResetPasswordForm($token) { 
-         return view('auth.forgetPasswordLink', ['token' => $token]);
+         return view('auth.passwords.reset', ['token' => $token]);
       }
   
       /**
@@ -73,24 +66,24 @@ class ForgotPasswordController extends Controller
       public function submitResetPasswordForm(Request $request)
       {
           $request->validate([
+              'email' => 'required|email|exists:users',
               'password' => 'required|string|min:6|confirmed',
               'password_confirmation' => 'required'
           ]);
-  
           $updatePassword = DB::table('password_resets')
                               ->where([
                                 'email' => $request->email, 
                                 'token' => $request->token
                               ])
                               ->first();
-  
           if(!$updatePassword){
-              return back()->withInput()->with('error', 'Invalid token!');
+              return back()->withInput()->with('message', 'Invalid token! Please submit another reset request');
           }
-  
+          
+          
           $user = User::where('email', $request->email)
                       ->update(['password' => Hash::make($request->password)]);
- 
+          
           DB::table('password_resets')->where(['email'=> $request->email])->delete();
   
           return redirect('/login')->with('message', 'Your password has been changed!');

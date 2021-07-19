@@ -220,8 +220,9 @@ class BlogController extends BackendController
         $posts       = Post::published()->with('category', 'author')->latest()->paginate($this->limit);
         $postCount   = Post::published()->count();
         $statusList = $this->statusList($request);
+        $banner     = Post::where('isBanner', '=', '1')->first();
 
-        return view("backend.blog.banner", compact('posts', 'postCount', 'onlyTrashed', 'statusList'));
+        return view("backend.blog.banner", compact('posts', 'postCount', 'onlyTrashed', 'statusList', 'banner'));
     }
 
     public function bannerUpdate($id)

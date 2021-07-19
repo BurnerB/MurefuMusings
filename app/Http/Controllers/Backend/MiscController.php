@@ -40,10 +40,11 @@ class MiscController extends BackendController
         $settings = Setting::first();
         $oldImage = $settings->about_image;
 
+        
         $data= $this->handleRequest($request);
         
         $settings->update($data);
-
+        // dd($settings->mobile);
         if ($oldImage !== $settings->about_image) {
             $this->removeImage($oldImage);
         }

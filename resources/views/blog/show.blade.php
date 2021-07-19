@@ -36,17 +36,18 @@
 						<p>{!! $post->author->bio !!}</p>
 					</div>
 				</div>
-				<!-- <div class="post-nav">
+				<div class="post-nav">
 					<div class="prev-post">
 						<a href="#"><i class="far fa-angle-left"></i></a><span class="title">Previous Post</span>
 					</div>
 					<div class="next-post">
 						<span class="title">Next Post</span><a href="#"><i class="far fa-angle-right"></i></a>
 					</div>
-				</div> -->
+				</div>
 			</div>
 			@include('blog.comments')
 		</div>
+		<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-60ec2033d8045dfc"></script>
 	</section>
 	@include('blog.testimonials')
 @endsection

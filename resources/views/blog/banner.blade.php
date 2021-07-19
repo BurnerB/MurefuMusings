@@ -3,28 +3,31 @@
 		<div class="banner-slider">
 			<div class="sinlge-banner">
 				<div class="banner-wrapper">
-				@foreach($posts as $post)
-					@if ($post->isBanner)
-					<div class="banner-bg" style="background-image: url({{ ($post->image_url) ? $post->image_url : '/img/posts/default_blog.jpg' }});"></div>
+					@if ($banner)
+					
+					<div class="banner-bg" style="background-image: url({{ ($banner->image) ? $banner->image_url :'/img/banner/default_blog.jpg' }});"></div>
 							<div class="banner-content" data-animation="fadeInUp" data-delay="0.3s">
 								<h3 class="title" data-animation="fadeInUp" data-delay="0.6s">
-									<a href="{{ route('blog.show', $post->slug) }}">
-                  						{{ $post->title }}
+									<a href="{{ route('blog.show', $banner->slug) }}">
+                  						{{ $banner->title }}
 									</a>
 								</h3>
 								<ul class="meta" data-animation="fadeInUp" data-delay="0.8s">
-									<li><a href="{{route('author', $post->author->slug)}}">By - {{$post->author->name}}</a></li>
+									<li><a href="{{route('author', $banner->author->slug)}}">By - {{$banner->author->name}}</a></li>
 								</ul>
 								<p data-animation="fadeInUp" data-delay="1s">
-								{!! $post->exerpt !!}
+								{!! $banner->exerpt !!}
 								</p>
-								<a href="{{ route('blog.show', $post->slug) }}" class="read-more">
+								<a href="{{ route('blog.show', $banner->slug) }}" class="read-more">
 									Read More <i class="fas fa-long-arrow-right"></i>
+
+
+									
 								</a>
 							</div>
+							
 						</div>
 					@endif
-			@endforeach
 			</div>
 		</div>
 		<div class="banner-nav"></div>

@@ -8,6 +8,11 @@
   <!-- /.login-logo -->
   <div class="login-box-body">
     <p class="login-box-msg">Sign in to start your session</p>
+    @if (Session::has('message'))
+          <div class="alert alert-success" role="alert">
+              {{ Session::get('message') }}
+          </div>
+    @endif
 
     <form method="POST" action="{{ url('/login') }}">
         @csrf
